@@ -82,7 +82,7 @@
             style="@style/FirebaseUI.Button"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/round_corner"
             android:text="Login"
             android:textColor="#000000"
