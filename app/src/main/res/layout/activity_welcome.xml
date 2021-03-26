@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BF0202">
+    android:background="#FFFFFF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/redLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="64dp"
-        android:background="#FFFFFF"
+        android:layout_marginTop="32dp"
+        android:background="#BF0202"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <EditText
             android:id="@+id/txtPasswordLogin"
@@ -32,7 +32,8 @@
             android:inputType="textPersonName"
             android:paddingStart="12dp"
             android:paddingLeft="12dp"
-            android:textSize="23sp"
+            android:textColorHint="#000000"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/txtEmailLogin"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/txtEmailLogin"
@@ -44,20 +45,20 @@
             android:layout_height="50dp"
             android:layout_marginStart="64dp"
             android:layout_marginLeft="64dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="64dp"
             android:layout_marginRight="64dp"
             android:background="@drawable/input_edge"
-            android:drawableStart="@drawable/ic_baseline_account_circle_24"
-            android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+            android:drawableStart="@drawable/ic_round_person_24"
+            android:drawableLeft="@drawable/ic_round_person_24"
             android:drawablePadding="12dp"
             android:ems="10"
             android:hint="Email Address"
             android:inputType="textPersonName"
             android:paddingStart="12dp"
             android:paddingLeft="12dp"
-            android:shadowColor="#FFFFFF"
-            android:textSize="23sp"
+            android:textColorHint="#000000"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -66,9 +67,10 @@
             android:id="@+id/txtSignEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="New User? Sign Up With Email"
-            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/btnLogin"
             app:layout_constraintHorizontal_bias="0.487"
@@ -77,13 +79,14 @@
 
         <Button
             android:id="@+id/btnLogin"
+            style="@style/FirebaseUI.Button"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/round_corner_red"
+            android:background="@drawable/round_corner"
             android:text="Login"
-            android:textColor="#FFFFFF"
-            android:textSize="23sp"
+            android:textColor="#000000"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/txtPasswordLogin"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/txtPasswordLogin"
@@ -95,6 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Forgot Password?"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/txtPasswordLogin"
@@ -106,6 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="OR"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
@@ -123,6 +128,7 @@
             android:paddingStart="13dp"
             android:paddingLeft="13dp"
             android:text="Sign in with Google"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/btnLogin"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/btnLogin"
@@ -134,9 +140,9 @@
         android:id="@+id/imageView"
         android:layout_width="110dp"
         android:layout_height="101dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -146,36 +152,31 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
         android:text="Red Cross Aid"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="Aid for those in need,"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="in conflict zones."
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
