@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         Button btMap = findViewById(R.id.btMap);
         btMap.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +36,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectedFragment = null;
+                    switch(item.getItemId()) {
+                        case R.id.profileFragment:
+                            selectedFragment = new ProfileFragment();
+                            break;
+                        case R.id.mapFragment:
+                            selectedFragment = new MapFragment();
+                            break;
+                        case R.id.informationFragment:
+                            selectedFragment = new InformationFragment();
+                            break;
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                    return true;
+                }
+            };
 
 }
 
