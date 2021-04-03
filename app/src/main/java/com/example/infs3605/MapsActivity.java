@@ -51,10 +51,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
 
+        // Add a 2nd marker in Sydney and move the camera
         LatLng sydneyTwo = new LatLng(-33.852, 151.211);
         googleMap.addMarker(new MarkerOptions()
                 .position(sydneyTwo)
-                .title("Sydney Red Cross Hospital"));
+                .title("Sydney Red Cross Hospital")
+                .snippet("Tuna cans available"));
         // [START_EXCLUDE silent]
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
