@@ -9,7 +9,10 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +28,20 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
+        //bottomNav.setItemIconTintList(null);
+
+
+
+        //Map page highlight by default
+       // bottomNav.setSelectedItemId(R.id.mapFragment);
+
+        Fragment selectedFragment = new MapFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, selectedFragment)
+                .commit();
+
+        /*
         Button btMap = findViewById(R.id.btMap);
         btMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+*/
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -47,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.mapFragment:
                             selectedFragment = new MapFragment();
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.fragment_container, selectedFragment)
+                                    .commit();
                             break;
                         case R.id.informationFragment:
                             selectedFragment = new InformationFragment();
@@ -56,11 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
-
 }
-
-
-
 
 
 // Tristan's Text test 1 24-Mar-21 3:49PM

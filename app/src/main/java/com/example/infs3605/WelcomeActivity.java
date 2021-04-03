@@ -67,7 +67,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    launchMainActivity();
+                    launchMapFragment();
                 } else {
                     Toast.makeText(WelcomeActivity.this, "Login Fail, Please Check Your Credential", Toast.LENGTH_SHORT).show();
                 }
@@ -81,7 +81,7 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void launchMainActivity() {
+    private void launchMapFragment() {
         Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
 
         startActivity(intent);
