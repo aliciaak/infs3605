@@ -38,9 +38,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        // Focus map on your own location
+            // Enabling location services within the emulator would have taken too much time so,
+            // for hte time being, I recommend just entering your current address into this website
+            // https://www.gps-coordinates.net/ and entering the exact numbers into the brackets
+            // in the LatLng(v, v1) code below. Latitude in v: and Longitude in v1:
+            // this method is tested and it works well.
+
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(-33.79086685180664, 151.13381958007812);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Tristan's Red Cross Hospital"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+        LatLng sydneyTwo = new LatLng(-33.852, 151.211);
+        googleMap.addMarker(new MarkerOptions()
+                .position(sydneyTwo)
+                .title("Sydney Red Cross Hospital"));
+        // [START_EXCLUDE silent]
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
     }
 }
