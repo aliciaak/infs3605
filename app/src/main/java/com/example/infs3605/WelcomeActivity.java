@@ -2,6 +2,7 @@ package com.example.infs3605;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -50,7 +51,13 @@ public class WelcomeActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userLogin();
+                if(txtEmailLogin.getText().toString().isEmpty()){
+                    Toast.makeText(WelcomeActivity.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
+                } else if(txtPasswordLogin.getText().toString().isEmpty()){
+                    Toast.makeText(WelcomeActivity.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
+                } else{
+                    userLogin();
+                }
             }
         });
 
