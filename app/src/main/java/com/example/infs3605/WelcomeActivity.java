@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -27,7 +28,6 @@ public class WelcomeActivity extends AppCompatActivity {
     EditText txtEmailLogin,txtPasswordLogin;
     ImageView ivSignGoogle;
     FirebaseAuth mAuth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,8 @@ public class WelcomeActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         txtSignEmail = findViewById(R.id.txtSignEmail);
 
+        mAuth = FirebaseAuth.getInstance();
+
         txtSignEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,17 +53,15 @@ public class WelcomeActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtEmailLogin.getText().toString().isEmpty()){
+                if (txtEmailLogin.getText().toString().isEmpty()) {
                     Toast.makeText(WelcomeActivity.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
-                } else if(txtPasswordLogin.getText().toString().isEmpty()){
+                } else if (txtPasswordLogin.getText().toString().isEmpty()) {
                     Toast.makeText(WelcomeActivity.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
-                } else{
+                } else {
                     userLogin();
                 }
             }
         });
-
-        mAuth = FirebaseAuth.getInstance();
 
 
     }
