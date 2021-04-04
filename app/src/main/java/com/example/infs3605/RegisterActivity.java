@@ -2,6 +2,7 @@ package com.example.infs3605;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -46,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
         radioCivilian = findViewById(R.id.radioCivilian);
         radioStaff =findViewById(R.id.radioStaff);
 
+        final LoadingDialog loadingDialog = new LoadingDialog(RegisterActivity.this);
+
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
         mAuth = FirebaseAuth.getInstance();
 
@@ -56,6 +59,9 @@ public class RegisterActivity extends AppCompatActivity {
                 final String email = txtEmail.getText().toString();
                 final String password = txtPassword.getText().toString();
                 final String language = txtLanguage.getText().toString();
+
+                loadingDialog.startLoadingDialog1();
+                Handler handler = new Handler();
 
                 if(radioCivilian.isChecked()){
                     type = "Civilian";
@@ -80,30 +86,37 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Please Enter Language", Toast.LENGTH_SHORT).show();
                 }
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();
+                        mAuth.createUserWithEmailAndPassword(email, password)
+                                .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()) {
 
-                                   User information = new User(name,email,password,language,type);
+                                            User information = new User(name,email,password,language,type);
 
-                                    FirebaseDatabase.getInstance().getReference("User")
-                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                            .setValue(information)
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    Toast.makeText(RegisterActivity.this, "Registration complete", Toast.LENGTH_SHORT).show();
-                                                    launchMainActivity();
+                                            FirebaseDatabase.getInstance().getReference("User")
+                                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                    .setValue(information)
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            Toast.makeText(RegisterActivity.this, "Registration complete", Toast.LENGTH_SHORT).show();
+                                                            launchMainActivity();
+                                                        }
+                                                    });
 
-                                                }
-                                            });
+                                        }
 
-                                }
+                                    }
+                                });
+                    }
+                }, 10000);
 
-                            }
-                        });
+
             }
         });
 

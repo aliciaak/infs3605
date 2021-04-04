@@ -2,6 +2,7 @@ package com.example.infs3605;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -41,6 +42,8 @@ public class WelcomeActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         txtSignEmail = findViewById(R.id.txtSignEmail);
 
+        final LoadingDialog loadingDialog = new LoadingDialog(WelcomeActivity.this);
+
         mAuth = FirebaseAuth.getInstance();
 
         txtSignEmail.setOnClickListener(new View.OnClickListener() {
@@ -53,12 +56,21 @@ public class WelcomeActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loadingDialog.startLoadingDialog();
+                Handler handler = new Handler();
+
                 if (txtEmailLogin.getText().toString().isEmpty()) {
                     Toast.makeText(WelcomeActivity.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
                 } else if (txtPasswordLogin.getText().toString().isEmpty()) {
                     Toast.makeText(WelcomeActivity.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
                 } else {
-                    userLogin();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadingDialog.dismissDialog();
+                            userLogin();
+                        }
+                    }, 10000);
                 }
             }
         });
