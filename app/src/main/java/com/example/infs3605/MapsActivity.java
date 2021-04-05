@@ -51,7 +51,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-33.79086685180664, 151.13381958007812);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Tristan's Red Cross Hospital"));
+        mMap.addMarker(new MarkerOptions()
+                .position(sydney)
+                .title("Tristan's Red Cross Hospital")
+                .snippet("Available - Tuna, Blankets & Crackers"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
 
@@ -62,7 +65,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .title("Sydney Red Cross Hospital")
                 .snippet("Tuna cans available"));
         // [START_EXCLUDE silent]
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
     }
 }

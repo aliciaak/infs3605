@@ -52,6 +52,10 @@ public class RegisterActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
         mAuth = FirebaseAuth.getInstance();
 
+        //For storing location data
+        /*databaseReference = FirebaseDatabase.getInstance().getReference("Location");
+        mAuth = FirebaseAuth.getInstance();*/
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
