@@ -56,7 +56,7 @@ public class FingerprintActivity extends AppCompatActivity {
 
                 final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
                 .setTitle("Login")
-                .setDescription("Use your fingerprint to login")
+                .setDescription("Please use your fingerprint to login")
                 .setNegativeButtonText("cancel")
                 .build();
 
