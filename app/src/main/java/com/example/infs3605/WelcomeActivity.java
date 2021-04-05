@@ -3,7 +3,6 @@ package com.example.infs3605;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,9 +24,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class WelcomeActivity extends AppCompatActivity {
 
     TextView txtSignEmail;
-    Button btnLogin,btnSignGoogle;
+    Button btnLogin;
     EditText txtEmailLogin,txtPasswordLogin;
-    ImageView ivSignGoogle;
     FirebaseAuth mAuth;
 
     @Override

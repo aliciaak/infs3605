@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/redLayout"
         android:layout_width="0dp"
-        android:layout_height="330dp"
+        android:layout_height="270dp"
         android:background="#BF0202"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
             android:id="@+id/txtSignEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="New User? Sign Up With Email"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
@@ -73,7 +73,7 @@
             app:layout_constraintEnd_toEndOf="@+id/btnLogin"
             app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="@+id/btnLogin"
-            app:layout_constraintTop_toBottomOf="@+id/btnSignGoogle" />
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
         <Button
             android:id="@+id/btnLogin"
@@ -101,36 +101,6 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/txtPasswordLogin"
             app:layout_constraintTop_toBottomOf="@+id/txtPasswordLogin" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="OR"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
-
-        <Button
-            android:id="@+id/btnSignGoogle"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/input_edge"
-            android:drawableStart="@drawable/google"
-            android:drawableLeft="@drawable/google"
-            android:paddingStart="50dp"
-            android:paddingLeft="50dp"
-            android:text="Sign in with Google"
-            android:textSize="12sp"
-            android:paddingRight="60dp"
-            app:layout_constraintEnd_toEndOf="@+id/btnLogin"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/btnLogin"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
