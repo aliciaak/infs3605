@@ -7,6 +7,17 @@
     android:background="#f5f5f5"
     tools:context=".InformationFragment">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/about_emblems"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <Button
         android:id="@+id/aboutRedCrossButton"
