@@ -32,14 +32,15 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        //bottomNav.setItemIconTintList(null);
+//      bottomNav.setItemIconTintList(null);
 
 
 
-        //Map page highlight by default
-       // bottomNav.setSelectedItemId(R.id.mapFragment);
+//      Map page highlight by default
+//      bottomNav.setSelectedItemId(R.id.mapFragment);
 
-        Fragment selectedFragment = new MapFragment();
+        Fragment selectedFragment = new MapBoxMainFragment();
+//      Fragment selectedFragment = new MapFragment();
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container, selectedFragment)
@@ -67,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new ProfileFragment();
                             break;
                         case R.id.mapFragment:
-                            selectedFragment = new MapFragment();
+                            selectedFragment = new MapBoxMainFragment();
+//                          selectedFragment = new MapFragment();
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .replace(R.id.fragment_container, selectedFragment)

@@ -2,10 +2,9 @@ package com.example.infs3605;
 
 public class User {
 
-    public String name,email,password,language,type;
+    public String name, email, password, language, type;
 
     public User(){
-
     }
 
     public User(String name, String email, String password, String language,String type) {
@@ -15,6 +14,4 @@ public class User {
         this.language = language;
         this.type = type;
     }
-
-
 }

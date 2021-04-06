@@ -112,19 +112,13 @@ public class RegisterActivity extends AppCompatActivity {
                                                             launchMainActivity();
                                                         }
                                                     });
-
                                         }
-
                                     }
                                 });
                     }
                 }, 10000);
-
-
             }
         });
-
-
     }
 
     public void launchMainActivity() {
