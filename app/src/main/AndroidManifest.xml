@@ -41,6 +41,9 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".FingerprintActivity"/>
         <activity android:name=".RegisterActivity" />
+
+        <activity android:name=".InformationPages.AboutEmblems"/>
+
         <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
