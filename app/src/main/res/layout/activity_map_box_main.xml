@@ -44,7 +44,7 @@
         android:layout_marginEnd="16dp"
         android:background="@color/mapboxGrayLight"
         android:enabled="false"
-        android:text="Start navigation"
+        android:text="@string/start_nav"
         android:textColor="@color/mapboxWhite"
         mapbox:layout_constraintStart_toStartOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent" />
@@ -81,9 +81,10 @@
                 <ImageView android:id="@+id/close"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
+                    android:layout_gravity="end"
                     android:src="@android:drawable/ic_menu_close_clear_cancel"
-                    app:tint="@android:color/holo_red_dark" />
+                    app:tint="@android:color/holo_red_dark"
+                    android:contentDescription="@null"/>
 
                 <ImageView
                     android:id="@+id/imageMain"
@@ -91,21 +92,22 @@
                     android:layout_height="200dp"
                     android:layout_marginBottom="5dp"
                     android:src="@drawable/dummy"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    android:contentDescription="@null"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Scholes View Shelter"
+                    android:text="@string/scholes"
                     android:textColor="@android:color/black"
-                    android:textSize="25dp" />
+                    android:textSize="25sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12:03 -> 12:11 / 500 metres"
+                    android:text="@string/distance"
                     android:textColor="@android:color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <LinearLayout
                     android:id="@+id/layer_available"
@@ -120,42 +122,42 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Available"
+                        android:text="@string/available"
                         android:textColor="@color/black"
-                        android:textSize="15dp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:drawableLeft="@drawable/tick"
+                        app:drawableLeftCompat="@drawable/tick"
                         android:drawablePadding="5dp"
-                        android:drawableTint="@android:color/holo_green_dark"
+                        app:drawableTint="@android:color/holo_green_dark"
                         android:gravity="center"
-                        android:text="Medical Treatment"
+                        android:text="@string/med_treat"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:drawableLeft="@drawable/tick"
+                        app:drawableLeftCompat="@drawable/tick"
                         android:drawablePadding="5dp"
-                        android:drawableTint="@android:color/holo_green_dark"
+                        app:drawableTint="@android:color/holo_green_dark"
                         android:gravity="center"
-                        android:text="Food"
+                        android:text="@string/food"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:drawableLeft="@drawable/tick"
+                        app:drawableLeftCompat="@drawable/tick"
                         android:drawablePadding="5dp"
-                        android:drawableTint="@android:color/holo_green_dark"
+                        app:drawableTint="@android:color/holo_green_dark"
                         android:gravity="center"
-                        android:text="Water"
+                        android:text="@string/water"
                         android:textColor="@color/black" />
 
 
@@ -174,9 +176,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Unavailable"
+                        android:text="@string/unavailable"
                         android:textColor="@color/black"
-                        android:textSize="15dp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -184,33 +186,33 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
+                        app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
                         android:drawablePadding="5dp"
-                        android:drawableTint="@android:color/holo_red_dark"
+                        app:drawableTint="@android:color/holo_red_dark"
                         android:gravity="center"
-                        android:text="Medical Treatment"
+                        android:text="@string/med_treat"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
+                        app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
                         android:drawablePadding="5dp"
-                        android:drawableTint="@android:color/holo_red_dark"
+                        app:drawableTint="@android:color/holo_red_dark"
                         android:gravity="center"
-                        android:text="Food"
+                        android:text="@string/food"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
+                        app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
                         android:drawablePadding="5dp"
-                        android:drawableTint="@android:color/holo_red_dark"
+                        app:drawableTint="@android:color/holo_red_dark"
                         android:gravity="center"
-                        android:text="Water"
+                        android:text="@string/water"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -225,7 +227,7 @@
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:text="View Details" />
+                    android:text="@string/view_details" />
 
             </LinearLayout>
         </ScrollView>
