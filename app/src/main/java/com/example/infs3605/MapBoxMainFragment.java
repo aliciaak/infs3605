@@ -137,13 +137,13 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
                             if(currentRoute==null){
                                 Toast.makeText(getActivity(),"Failed to retrieve route. please try again!", Toast.LENGTH_LONG).show();
                             }
-                            startActivity(new Intent(getActivity(),  MapboxNavigationActivity.class).putExtra("currentRoute",currentRoute));
+                            startActivity(new Intent(getActivity(),  MapBoxNavigationActivity.class).putExtra("currentRoute",currentRoute));
                             //                            boolean simulateRoute = true;
                             //                            NavigationLauncherOptions options = NavigationLauncherOptions.builder()
                             //                                    .directionsRoute(currentRoute)
                             //                                    .shouldSimulateRoute(simulateRoute)
                             //                                    .build();
-                            //// Call this method with Context from within an Activity
+                            //   Call this method with Context from within an Activity
                             //                            NavigationLauncher.startNavigation(MapBoxMainActivity.this, options);
                         } else {
                             showDetailUI();

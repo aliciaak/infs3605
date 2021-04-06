@@ -2,4 +2,7 @@
     <string name="app_name">infs3605</string>
     <string name="title_activity_maps">Map</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="mapbox_key_1" translatable="false">pk.eyJ1IjoibmlrdW5qbGFkZSIsImEiOiJja21wMXdvMDcyYWlxMm9uemtrNGYxcnExIn0.pqkRFpv6OVTy2VBkGfvXjQ</string>
+    <string name="user_location_permission_explanation">This app needs location permissions to show its functionality.</string>
+    <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
 </resources>

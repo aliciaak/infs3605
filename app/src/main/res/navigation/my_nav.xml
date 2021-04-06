@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.infs3605.MapFragment"
+        android:name="com.example.infs3605.MapBoxMainFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
     <fragment
