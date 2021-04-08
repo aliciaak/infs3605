@@ -52,7 +52,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MapboxNavigationActivity" />
+        <activity android:name=".MapBoxNavigationActivity" />
     </application>
 
 </manifest>
