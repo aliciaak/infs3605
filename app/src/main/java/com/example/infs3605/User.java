@@ -3,6 +3,7 @@ package com.example.infs3605;
 public class User {
 
     public String name, email, password, language, type,blood;
+    public Long id;
 
     public String getName() {
         return name;
@@ -55,12 +56,21 @@ public class User {
     public User(){
     }
 
-    public User(String name, String email, String password, String language,String type,String blood) {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User(String name, String email, String password, String language, String type, String blood, Long id) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.language = language;
         this.type = type;
         this.blood = blood;
+        this.id = id;
     }
 }

@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,8 +24,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -37,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth mAuth;
     String blood;
+    TextView txtId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         btnRegister = findViewById(R.id.btnRegister);
         radioCivilian = findViewById(R.id.radioCivilian);
         radioStaff =findViewById(R.id.radioStaff);
+        txtId = findViewById(R.id.txtId);
 
         spBlood = findViewById(R.id.spBlood);
         spBlood.setOnItemSelectedListener(this);
@@ -67,6 +73,27 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
         mAuth = FirebaseAuth.getInstance();
 
+        DatabaseReference userReference = FirebaseDatabase.getInstance().getReference().child("User");
+
+        userReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    User user = snapshot.getValue(User.class);
+                    Long id = user.getId();
+                    int userId = id.intValue();
+                    userId = userId++;
+                    txtId.setText(Integer.toString(userId));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         //For storing location data
         /*databaseReference = FirebaseDatabase.getInstance().getReference("Location");
         mAuth = FirebaseAuth.getInstance();*/
@@ -79,6 +106,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 final String password = txtPassword.getText().toString();
                 final String language = txtLanguage.getText().toString();
                 final String blood_type = blood;
+                final Long userId = Long.valueOf(Integer.parseInt(txtId.getText().toString())+1);
+
 
                 loadingDialog.startLoadingDialog1();
                 Handler handler = new Handler();
@@ -120,7 +149,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
 
-                                            User information = new User(name,email,password,language,type,blood_type);
+                                            User information = new User(name,email,password,language,type,blood_type,userId);
 
                                             FirebaseDatabase.getInstance().getReference("User")
                                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

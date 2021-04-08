@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class ProfileFragment extends Fragment {
 
-    TextView tvName,tvBlood,tvEmail;
+    TextView tvName,tvBlood,tvEmail,tvId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,8 +37,9 @@ public class ProfileFragment extends Fragment {
         tvName = v.findViewById(R.id.tvName);
         tvBlood = v.findViewById(R.id.tvBlood);
         tvEmail = v.findViewById(R.id.tvEmail);
+        tvId = v.findViewById(R.id.tvId);
 
-        System.out.println(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        //System.out.println(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         userReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -47,6 +48,7 @@ public class ProfileFragment extends Fragment {
                 tvName.setText(user.getName());
                 tvEmail.setText(user.getEmail());
                 tvBlood.setText(user.getBlood());
+                tvId.setText("RC" + user.getId().toString());
             }
 
             @Override
