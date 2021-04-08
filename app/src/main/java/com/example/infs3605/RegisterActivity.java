@@ -7,9 +7,13 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,15 +26,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String type = "";
     Button btnRegister;
     RadioButton radioCivilian,radioStaff;
     EditText txtName,txtEmail,txtPassword,txtLanguage;
+    Spinner spBlood;
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth mAuth;
+    String blood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,15 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegister);
         radioCivilian = findViewById(R.id.radioCivilian);
         radioStaff =findViewById(R.id.radioStaff);
+
+        spBlood = findViewById(R.id.spBlood);
+        spBlood.setOnItemSelectedListener(this);
+
+        String[] blood_type = getResources().getStringArray(R.array.blood_type);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,blood_type);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spBlood.setAdapter(adapter);
+
 
         final LoadingDialog loadingDialog = new LoadingDialog(RegisterActivity.this);
 
@@ -63,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String email = txtEmail.getText().toString();
                 final String password = txtPassword.getText().toString();
                 final String language = txtLanguage.getText().toString();
+                final String blood_type = blood;
 
                 loadingDialog.startLoadingDialog1();
                 Handler handler = new Handler();
@@ -90,6 +106,10 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Please Enter Language", Toast.LENGTH_SHORT).show();
                 }
 
+
+
+
+
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -100,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
 
-                                            User information = new User(name,email,password,language,type);
+                                            User information = new User(name,email,password,language,type,blood_type);
 
                                             FirebaseDatabase.getInstance().getReference("User")
                                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -124,5 +144,22 @@ public class RegisterActivity extends AppCompatActivity {
     public void launchMainActivity() {
         Intent intent = new Intent (RegisterActivity.this,MainActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if(position==0){
+            onNothingSelected(parent);
+        } else{
+            String valueFromSpinner = parent.getItemAtPosition(position).toString();
+            blood = valueFromSpinner;
+        }
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        String valueFromSpinner = "Not Entered";
+        blood = valueFromSpinner;
     }
 }

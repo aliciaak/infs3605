@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="blood_type">
+        <item>"Select Your Blood Type"</item>
+        <item>"A+ (A Positive)"</item>
+        <item>"A- (A Negative)"</item>
+        <item>"B+ (B Positive)"</item>
+        <item>"B- (B Negative)"</item>
+        <item>"O+ (O Positive)"</item>
+        <item>"O- (O Negative)"</item>
+        <item>"AB+ (AB Positive)"</item>
+        <item>"AB- (AB Negative)"</item>
+        <item>"Not Sure"</item>
+    </string-array>
+
+</resources>
