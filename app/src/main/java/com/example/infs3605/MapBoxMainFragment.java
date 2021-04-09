@@ -1,9 +1,12 @@
 package com.example.infs3605;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.PointF;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -81,11 +85,14 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
 
     /////////////
     ToggleButton btnEC;
-    Button btnTest;
+    Button btnAdd;
+
     private BottomSheetBehavior bottomSheetBehavior;
     private RecyclerView rvMember;
     private Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+
+    Dialog mDialog;
 
 
 
@@ -118,14 +125,6 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
 
         btnEC = view.findViewById(R.id.btnEC);
 
-//        btnTest = view.findViewById(R.id.btnTest);
-
-//        btnTest.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-//            }
-//        });
 
 
         btnEC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -155,12 +154,39 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
             }
         });
 
+        btnAdd = view.findViewById(R.id.btnAdd);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDialog.setContentView(R.layout.popup_addnewmember);
+                mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                mDialog.show();
+            }
+        });
+
 
         rvMember = view.findViewById(R.id.rvMember);
+
         layoutManager = new LinearLayoutManager(getActivity());
         rvMember.setLayoutManager(layoutManager);
 
-        adapter = new Adapter(getActivity(),User.getStaticUsers());
+        mDialog = new Dialog(getActivity());
+
+        View pop = inflater.inflate(R.layout.popup_memberdetail,null);
+
+        Adapter.Listener listener = new Adapter.Listener() {
+            @Override
+            public void onClick(View view, String name) {
+                Intent intent = new Intent(getActivity(),DetailActivity.class);
+                //add extended data to intent
+                intent.putExtra(DetailActivity.INTENT_MESSAGE, name);
+
+                startActivity(intent);
+            }
+        };
+
+        adapter = new Adapter(getActivity(),User.getStaticUsers(),listener);
 
         rvMember.setAdapter(adapter);
 

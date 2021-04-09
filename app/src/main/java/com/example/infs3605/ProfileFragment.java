@@ -41,7 +41,6 @@ public class ProfileFragment extends Fragment {
         tvBlood = v.findViewById(R.id.tvBlood);
         tvEmail = v.findViewById(R.id.tvEmail);
         tvId = v.findViewById(R.id.tvId);
-        btnFind = v.findViewById(R.id.btnFind);
 
         //System.out.println(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
@@ -61,12 +60,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        btnFind.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchFamilyActivity();
-            }
-        });
 
 
         // Inflate the layout for this fragment

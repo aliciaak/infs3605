@@ -137,8 +137,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
 
 
-
-
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {

@@ -15,11 +15,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private ArrayList<User> familyMember;
     private LayoutInflater inflater;
+    private final Listener mlistener;
 
 
-    public Adapter(Context ctx, ArrayList<User> familyMember) {
+    public Adapter(Context ctx, ArrayList<User> familyMember,Listener listener) {
        this.familyMember = familyMember;
        this.inflater = LayoutInflater.from(ctx);
+       this.mlistener = listener;
     }
 
 
@@ -27,16 +29,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.family_member_cardview,parent,false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,mlistener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
         User user = familyMember.get(position);
-
         holder.status.setText(user.getType());
         holder.name.setText(user.getName());
         holder.location.setText(user.getEmail());
+        holder.locationStatus.setText(user.getPassword());
+
+        holder.itemView.setTag(user.getName());
     }
 
     @Override
@@ -44,15 +48,29 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return familyMember.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name,location,status;
+    public interface Listener {
+        void onClick(View view,String name);
+    }
 
-        public ViewHolder(@NonNull View itemView) {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        TextView name,location,status,locationStatus;
+
+        private Listener listener;
+
+        public ViewHolder(@NonNull View itemView, Listener listener) {
             super(itemView);
+            this.listener = listener;
+            itemView.setOnClickListener(this);
 
             name = itemView.findViewById(R.id.txtMemmberName);
             location = itemView.findViewById(R.id.txtLocation);
             status = itemView.findViewById(R.id.txtHelpStatus);
+            locationStatus = itemView.findViewById(R.id.txtLocationStatus);
+        }
+
+        @Override
+        public void onClick(View v) {
+            listener.onClick(v, (String) v.getTag());
         }
     }
 }

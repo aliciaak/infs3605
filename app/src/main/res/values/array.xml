@@ -14,4 +14,10 @@
         <item>"Not Sure"</item>
     </string-array>
 
+    <string-array name="Lost_Found">
+        <item>"Mark As"</item>
+        <item>"Mark As Lost"</item>
+        <item>"Mark As Found"</item>
+    </string-array>
+
 </resources>

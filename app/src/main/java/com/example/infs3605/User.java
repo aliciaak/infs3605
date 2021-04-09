@@ -1,6 +1,7 @@
 package com.example.infs3605;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class User {
 
@@ -79,10 +80,20 @@ public class User {
 
     public static ArrayList<User> getStaticUsers(){
         ArrayList<User> users = new ArrayList<>();
-        users.add(new User("Mina Faiz","Hurstville Red Cross","12345678","Chinese","Help Requested","A+ (A Postive)",Long.valueOf(101)));
-        users.add(new User("Zaed Faiz","Chatswoord Red Cross","12345678","English","Help requested","A+ (A Postive)",Long.valueOf(102)));
-        users.add(new User("Rafid Mahmood","Unknown","12345678","English","Help requested","C+ (A Postive)",Long.valueOf(103)));
+        users.add(new User("Mina Faiz","Hurstville Red Cross","With family","Chinese","No Help Requested","A+ (A Postive)",Long.valueOf(101)));
+        users.add(new User("Zaed Faiz","Chatswoord Red Cross","With family","English","No Help requested","A+ (A Postive)",Long.valueOf(102)));
+        users.add(new User("Rafid Mahmood","Unknown","Unknown","English","Help requested","C+ (A Postive)",Long.valueOf(103)));
         return users;
+    }
+
+    public static User getUser(String name) {
+        ArrayList<User> users = getStaticUsers();
+        for (final User user : users) {
+            if (user.getName().equals(name)) {
+                return user;
+            }
+        }
+        return users.get(users.size() - 1);
     }
 
 
