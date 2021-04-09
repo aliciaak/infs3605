@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:mapbox="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MapBoxMainFragment">
@@ -12,14 +13,6 @@
     <!--        android:layout_width="wrap_content"-->
     <!--        android:layout_height="wrap_content"-->
     <!--        mapbox:mapbox_styleUrl="@string/mapbox_style_mapbox_streets"/>-->
-
-    <com.mapbox.mapboxsdk.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        mapbox:mapbox_cameraTargetLat="38.9098"
-        mapbox:mapbox_cameraTargetLng="-77.0295"
-        mapbox:mapbox_cameraZoom="12" />
 
 
     <!--
@@ -34,7 +27,16 @@
             mapbox:mapbox_cameraZoom="12" />
     -->
 
-    <Button android:visibility="gone"
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraTargetLat="38.9098"
+        mapbox:mapbox_cameraTargetLng="-77.0295"
+        mapbox:mapbox_cameraZoom="12" />
+
+    <Button
         android:id="@+id/startButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -46,13 +48,13 @@
         android:enabled="false"
         android:text="@string/start_nav"
         android:textColor="@color/mapboxWhite"
+        android:visibility="gone"
         mapbox:layout_constraintStart_toStartOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_one_login"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -61,6 +63,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="25dp"
         android:elevation="10dp"
+        android:visibility="gone"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
@@ -78,22 +81,23 @@
                 android:padding="10dp">
 
 
-                <ImageView android:id="@+id/close"
+                <ImageView
+                    android:id="@+id/close"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
+                    android:contentDescription="@null"
                     android:src="@android:drawable/ic_menu_close_clear_cancel"
-                    app:tint="@android:color/holo_red_dark"
-                    android:contentDescription="@null"/>
+                    app:tint="@android:color/holo_red_dark" />
 
                 <ImageView
                     android:id="@+id/imageMain"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginBottom="5dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/dummy"
-                    android:visibility="gone"
-                    android:contentDescription="@null"/>
+                    android:visibility="gone" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -131,34 +135,34 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        app:drawableLeftCompat="@drawable/tick"
                         android:drawablePadding="5dp"
-                        app:drawableTint="@android:color/holo_green_dark"
                         android:gravity="center"
                         android:text="@string/med_treat"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        app:drawableLeftCompat="@drawable/tick"
+                        app:drawableTint="@android:color/holo_green_dark" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        app:drawableLeftCompat="@drawable/tick"
                         android:drawablePadding="5dp"
-                        app:drawableTint="@android:color/holo_green_dark"
                         android:gravity="center"
                         android:text="@string/food"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        app:drawableLeftCompat="@drawable/tick"
+                        app:drawableTint="@android:color/holo_green_dark" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        app:drawableLeftCompat="@drawable/tick"
                         android:drawablePadding="5dp"
-                        app:drawableTint="@android:color/holo_green_dark"
                         android:gravity="center"
                         android:text="@string/water"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        app:drawableLeftCompat="@drawable/tick"
+                        app:drawableTint="@android:color/holo_green_dark" />
 
 
                 </LinearLayout>
@@ -186,34 +190,34 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
                         android:drawablePadding="5dp"
-                        app:drawableTint="@android:color/holo_red_dark"
                         android:gravity="center"
                         android:text="@string/med_treat"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
+                        app:drawableTint="@android:color/holo_red_dark" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
                         android:drawablePadding="5dp"
-                        app:drawableTint="@android:color/holo_red_dark"
                         android:gravity="center"
                         android:text="@string/food"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
+                        app:drawableTint="@android:color/holo_red_dark" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
                         android:drawablePadding="5dp"
-                        app:drawableTint="@android:color/holo_red_dark"
                         android:gravity="center"
                         android:text="@string/water"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
+                        app:drawableTint="@android:color/holo_red_dark" />
                 </LinearLayout>
 
                 <Button
@@ -233,4 +237,15 @@
         </ScrollView>
     </androidx.cardview.widget.CardView>
 
-</RelativeLayout>
+    <include layout="@layout/bottom_sheet"></include>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:layout_gravity="right"
+        android:src="@drawable/redcross" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

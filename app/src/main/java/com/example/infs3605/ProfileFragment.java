@@ -1,5 +1,6 @@
 package com.example.infs3605;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,7 +26,8 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class ProfileFragment extends Fragment {
 
-    TextView tvName,tvBlood,tvEmail,tvId;
+    TextView tvName, tvBlood, tvEmail, tvId;
+    Button btnFind;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +41,7 @@ public class ProfileFragment extends Fragment {
         tvBlood = v.findViewById(R.id.tvBlood);
         tvEmail = v.findViewById(R.id.tvEmail);
         tvId = v.findViewById(R.id.tvId);
+        btnFind = v.findViewById(R.id.btnFind);
 
         //System.out.println(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
@@ -57,10 +61,22 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        btnFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchFamilyActivity();
+            }
+        });
+
 
         // Inflate the layout for this fragment
         return v;
 
 
+    }
+
+    public void launchFamilyActivity() {
+        Intent intent = new Intent(getActivity(), FamilyActivity.class);
+        startActivity(intent);
     }
 }

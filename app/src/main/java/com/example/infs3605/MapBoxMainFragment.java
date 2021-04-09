@@ -10,16 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.api.directions.v5.models.DirectionsResponse;
@@ -73,6 +78,17 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
     private ImageView imageMain, close;
     private CardView cv_one_login;
 
+
+    /////////////
+    ToggleButton btnEC;
+    Button btnTest;
+    private BottomSheetBehavior bottomSheetBehavior;
+    private RecyclerView rvMember;
+    private Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -94,6 +110,60 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
                 dismissDetailView();
             }
         });
+
+        //////////recyclerView
+        LinearLayout linearLayout = view.findViewById(R.id.design_bottom_sheet);
+
+        bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
+
+        btnEC = view.findViewById(R.id.btnEC);
+
+//        btnTest = view.findViewById(R.id.btnTest);
+
+//        btnTest.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+//            }
+//        });
+
+
+        btnEC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                } else {
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                }
+            }
+        });
+
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if(newState == BottomSheetBehavior.STATE_EXPANDED){
+                    btnEC.setChecked(true);
+                } else {
+                    btnEC.setChecked(false);
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
+            }
+        });
+
+
+        rvMember = view.findViewById(R.id.rvMember);
+        layoutManager = new LinearLayoutManager(getActivity());
+        rvMember.setLayoutManager(layoutManager);
+
+        adapter = new Adapter(getActivity(),User.getStaticUsers());
+
+        rvMember.setAdapter(adapter);
+
         return view;
     }
 

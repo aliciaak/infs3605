@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -19,6 +20,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 public class MapFragment extends Fragment {
 
@@ -31,10 +33,10 @@ public class MapFragment extends Fragment {
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
 
+
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(final GoogleMap googleMap) {
-
                 mMap = googleMap;
 
                 // Add marker 1 - Tristan's house
@@ -70,6 +72,7 @@ public class MapFragment extends Fragment {
                 });*/
             }
         });
+
         return view;
     }
 }
