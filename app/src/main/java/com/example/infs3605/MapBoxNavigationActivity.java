@@ -9,6 +9,7 @@ import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -229,5 +230,8 @@ public class MapBoxNavigationActivity extends AppCompatActivity implements Progr
             mBuilder.setChannelId(CHANNNEL_ID);
             notificationManager.createNotificationChannel(notificationChannel);
         }
+
+        Toast.makeText(this, "You will soon be entering a conflict-free zone. This is a safe area!", Toast.LENGTH_LONG).show();
+
     }
 }
