@@ -39,7 +39,10 @@ import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.location.LocationComponent;
+import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions;
+import com.mapbox.mapboxsdk.location.LocationComponentOptions;
 import com.mapbox.mapboxsdk.location.modes.CameraMode;
+import com.mapbox.mapboxsdk.location.modes.RenderMode;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
@@ -81,9 +84,11 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
     private LinearLayout layer_available, layer_unavailable;
     private ImageView imageMain, close;
     private CardView cv_one_login;
-
+    private TextView marker_label;
+    private TextView label_of_duration;
 
     /////////////
+
     ToggleButton btnEC;
     Button btnAdd;
 
@@ -108,6 +113,8 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         layer_unavailable = view.findViewById(R.id.layer_unavailable);
         imageMain = view.findViewById(R.id.imageMain);
         cv_one_login = view.findViewById(R.id.cv_one_login);
+        marker_label = view.findViewById(R.id.marker_label);
+        label_of_duration = view.findViewById(R.id.label_of_duration);
         close = view.findViewById(R.id.close);
         button = view.findViewById(R.id.startButton);
         bottom_popup_button = view.findViewById(R.id.bottom_popup_button);
@@ -199,9 +206,10 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         this.mapboxMap = mapboxMap;
 
         List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
-        symbolLayerIconFeatureList.add(Feature.fromGeometry( Point.fromLngLat(151.18148855028312, -33.79166544257542)));
-        symbolLayerIconFeatureList.add(Feature.fromGeometry( Point.fromLngLat(151.13211352314386, -33.80877249446269)));
-        symbolLayerIconFeatureList.add(Feature.fromGeometry( Point.fromLngLat(151.16819867465995, -33.89075348207522)));
+        symbolLayerIconFeatureList.addAll(initCoordinateData());
+//        symbolLayerIconFeatureList.add(Feature.fromGeometry( Point.fromLngLat(151.18148855028312, -33.79166544257542)));
+//        symbolLayerIconFeatureList.add(Feature.fromGeometry( Point.fromLngLat(151.13211352314386, -33.80877249446269)));
+//        symbolLayerIconFeatureList.add(Feature.fromGeometry( Point.fromLngLat(151.16819867465995, -33.89075348207522)));
 
         mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mapbox/cjf4m44iw0uza2spb3q0a7s41")
                 // Add the SymbolLayer icon image to the map style
@@ -262,6 +270,39 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         });
     }
 
+    private List<Feature> initCoordinateData() {
+
+        //        symbolLayerIconFeatureList.add(Feature.fromGeometry( ));
+//        symbolLayerIconFeatureList.add(Feature.fromGeometry( ));
+//        symbolLayerIconFeatureList.add(Feature.fromGeometry( ));
+
+
+        Feature singleFeatureOne = Feature.fromGeometry( Point.fromLngLat(151.18148855028312, -33.79166544257542));
+        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_ONE");
+
+        Feature singleFeatureTwo = Feature.fromGeometry( Point.fromLngLat(151.13211352314386, -33.80877249446269));
+
+        singleFeatureTwo.addStringProperty("ICON_PROPERTY", "ICON_ID_TWO");
+
+        Feature singleFeatureThree = Feature.fromGeometry( Point.fromLngLat(151.16819867465995, -33.89075348207522));
+
+        singleFeatureThree.addStringProperty("ICON_PROPERTY", "ICON_ID_THREE");
+
+//// Not adding a ICON_PROPERTY property to fourth and fifth features in order to show off the default
+//// nature of the match expression used in the example up above
+//        Feature singleFeatureFour = Feature.fromGeometry( Point.fromLngLat(78.42315673828125,  17.43320034474222));
+//
+//        Feature singleFeatureFive = Feature.fromGeometry( Point.fromLngLat(80.16448974609375, 12.988500396985364));
+
+        List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
+        symbolLayerIconFeatureList.add(singleFeatureOne);
+        symbolLayerIconFeatureList.add(singleFeatureTwo);
+        symbolLayerIconFeatureList.add(singleFeatureThree);
+//        symbolLayerIconFeatureList.add(singleFeatureFour);
+//        symbolLayerIconFeatureList.add(singleFeatureFive);
+        return symbolLayerIconFeatureList;
+    }
+
     @Override
     public boolean onMapClick(@NonNull LatLng point) {
 //        GeoJsonSource source = mapboxMap.getStyle().getSourceAs("destination-source-id");
@@ -279,8 +320,10 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         {
             Point originPoint = Point.fromLngLat(locationComponent.getLastKnownLocation().getLongitude(), locationComponent.getLastKnownLocation().getLatitude());
             Point destinationPoint = Point.fromLngLat(point.getLongitude(), point.getLatitude());
+            Feature selectedFeature = features.get(0);
+            String title = selectedFeature.getStringProperty("ICON_PROPERTY");
             getRoute(originPoint , destinationPoint);
-            showDetailView();
+            showDetailView(title);
         }
 
         Timber.d("===> ");
@@ -307,6 +350,10 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
                             return;
                         }
                         currentRoute = response.body().routes().get(0);
+                        Log.d("Duration ==> ", currentRoute.duration().toString());
+                        Log.d("Distance ==> ", currentRoute.distance().toString());
+                        //label_of_duration.setText("");
+
                         // Draw the route on the map
                         if (navigationMapRoute != null) {
                             navigationMapRoute.removeRoute();
@@ -329,9 +376,25 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         if (PermissionsManager.areLocationPermissionsGranted(getActivity())) {
             // Activate the MapboxMap LocationComponent to show user location
             // Adding in LocationComponentOptions is also an optional parameter
+
+            //Create and customize the LocationComponent's options
+            LocationComponentOptions customLocationComponentOptions = LocationComponentOptions.builder(getActivity())
+                    .elevation(5)
+                    .accuracyAlpha(.6f)
+                    .accuracyColor(Color.RED)
+                    .foregroundDrawable(R.drawable.ic_star_marker)
+                    .build();
             locationComponent = mapboxMap.getLocationComponent();
-            locationComponent.activateLocationComponent(getActivity(), loadedMapStyle);
+
+            LocationComponentActivationOptions locationComponentActivationOptions = LocationComponentActivationOptions.builder(getActivity(),loadedMapStyle)
+                    .locationComponentOptions(customLocationComponentOptions).build();
+
+            locationComponent.activateLocationComponent(locationComponentActivationOptions);
             locationComponent.setLocationComponentEnabled(true);
+
+            // Set the component's render mode
+            locationComponent.setRenderMode(RenderMode.COMPASS);
+
             // Set the component's camera mode
             locationComponent.setCameraMode(CameraMode.TRACKING);
         } else {
@@ -441,7 +504,23 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         cv_one_login.setVisibility(View.GONE);
     }
 
-    private void showDetailView() {
+    private void showDetailView(String title) {
         cv_one_login.setVisibility(View.VISIBLE);
+
+        if (title.equals("ICON_ID_ONE"))
+        {
+            marker_label.setText( getString(R.string.scholes) + " 1");
+            imageMain.setImageResource(R.drawable.dummy_one);
+
+        }else if (title.equals("ICON_ID_TWO"))
+        {
+            marker_label.setText( getString(R.string.scholes) + " 2");
+            imageMain.setImageResource(R.drawable.dummy_two);
+
+        }else  {
+            marker_label.setText( getString(R.string.scholes) + " 3");
+            imageMain.setImageResource(R.drawable.dummy);
+
+        }
     }
 }
