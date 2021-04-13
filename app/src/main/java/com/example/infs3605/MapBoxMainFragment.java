@@ -539,43 +539,43 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         if (title.equals("ICON_ID_ONE"))
         {
             marker_label.setText( getString(R.string.bondi));
-            imageMain.setImageResource(R.drawable.dummy_one);
+            imageMain.setImageResource(R.drawable.zstation1);
 
         } else if (title.equals("ICON_ID_TWO")) {
             marker_label.setText( getString(R.string.broadway));
-            imageMain.setImageResource(R.drawable.dummy_two);
+            imageMain.setImageResource(R.drawable.zstation2);
 
         } else if (title.equals("ICON_ID_THREE")) {
             marker_label.setText( getString(R.string.darlinghurst));
-            imageMain.setImageResource(R.drawable.dummy);
+            imageMain.setImageResource(R.drawable.zstation3);
 
         } else if (title.equals("ICON_ID_FOUR")) {
             marker_label.setText(getString(R.string.lane_cove));
-            imageMain.setImageResource(R.drawable.dummy);
+            imageMain.setImageResource(R.drawable.zstation4);
 
         } else if (title.equals("ICON_ID_FIVE")) {
             marker_label.setText(getString(R.string.manly));
-            imageMain.setImageResource(R.drawable.dummy);
+            imageMain.setImageResource(R.drawable.zstation5);
 
         } else if (title.equals("ICON_ID_SIX")) {
             marker_label.setText(getString(R.string.newtown));
-            imageMain.setImageResource(R.drawable.dummy);
+            imageMain.setImageResource(R.drawable.zstation1);
 
         } else if (title.equals("ICON_ID_SEVEN")) {
             marker_label.setText( getString(R.string.parramatta));
-            imageMain.setImageResource(R.drawable.dummy);
+            imageMain.setImageResource(R.drawable.zstation2);
 
         } else if (title.equals("ICON_ID_EIGHT")) {
             marker_label.setText(getString(R.string.randwick));
-            imageMain.setImageResource(R.drawable.dummy);
+            imageMain.setImageResource(R.drawable.zstation3);
 
         } else if (title.equals("ICON_ID_NINE")) {
             marker_label.setText(getString(R.string.syd_CBD));
-            imageMain.setImageResource(R.drawable.dummy);
+            imageMain.setImageResource(R.drawable.zstation4);
 
         } else {
             marker_label.setText(getString(R.string.test));
-            imageMain.setImageResource(R.drawable.dummy);
+            imageMain.setImageResource(R.drawable.zstation5);
         }
     }
 }
