@@ -22,6 +22,18 @@
 
     <string name="start_nav">Start Navigation</string>
     <string name="scholes">Schole\'s View Shelter</string>
+
+    <string name="bondi">Bondi Junction RC Station</string>
+    <string name="broadway">Broadway RC Station</string>
+    <string name="darlinghurst">Darlinghurst RC Station</string>
+    <string name="lane_cove">Lane Cove RC Station</string>
+    <string name="manly">Manly RC Station</string>
+    <string name="newtown">Newtown RC Station</string>
+    <string name="parramatta">Parramatta RC Station</string>
+    <string name="randwick">Randwick RC Station</string>
+    <string name="syd_CBD">Sydney CBD RC Station</string>
+    <string name="test">test RC Station</string>
+
     <string name="distance">15 minutes / 5.3 km</string>
 
     <string name="view_details">View Details</string>

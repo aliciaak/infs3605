@@ -277,16 +277,37 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
 //        symbolLayerIconFeatureList.add(Feature.fromGeometry( ));
 
 
-        Feature singleFeatureOne = Feature.fromGeometry( Point.fromLngLat(151.18148855028312, -33.79166544257542));
+        Feature singleFeatureOne = Feature.fromGeometry( Point.fromLngLat(151.24904, -33.89174));
         singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_ONE");
 
-        Feature singleFeatureTwo = Feature.fromGeometry( Point.fromLngLat(151.13211352314386, -33.80877249446269));
-
+        Feature singleFeatureTwo = Feature.fromGeometry( Point.fromLngLat(151.19432, -33.88418));
         singleFeatureTwo.addStringProperty("ICON_PROPERTY", "ICON_ID_TWO");
 
-        Feature singleFeatureThree = Feature.fromGeometry( Point.fromLngLat(151.16819867465995, -33.89075348207522));
-
+        Feature singleFeatureThree = Feature.fromGeometry( Point.fromLngLat(151.21566, -33.88000));
         singleFeatureThree.addStringProperty("ICON_PROPERTY", "ICON_ID_THREE");
+
+        Feature singleFeatureFour = Feature.fromGeometry( Point.fromLngLat(151.16966, -33.81384));
+        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_FOUR");
+
+        Feature singleFeatureFive = Feature.fromGeometry( Point.fromLngLat(151.28557, -33.79579));
+        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_FIVE");
+
+        Feature singleFeatureSix = Feature.fromGeometry( Point.fromLngLat(151.18742, -33.89231));
+        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_SIX");
+
+        Feature singleFeatureSeven = Feature.fromGeometry( Point.fromLngLat(151.00716, -33.82066));
+        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_SEVEN");
+
+        Feature singleFeatureEight = Feature.fromGeometry( Point.fromLngLat(151.24014, -33.91375));
+        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_EIGHT");
+
+        Feature singleFeatureNine = Feature.fromGeometry( Point.fromLngLat(151.20553, -33.87382));
+        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_NINE");
+
+        Feature singleFeatureTen = Feature.fromGeometry( Point.fromLngLat(151.22005, -33.90975));
+        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_TEN");
+
+
 
 //// Not adding a ICON_PROPERTY property to fourth and fifth features in order to show off the default
 //// nature of the match expression used in the example up above
@@ -298,6 +319,14 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         symbolLayerIconFeatureList.add(singleFeatureOne);
         symbolLayerIconFeatureList.add(singleFeatureTwo);
         symbolLayerIconFeatureList.add(singleFeatureThree);
+        symbolLayerIconFeatureList.add(singleFeatureFour);
+        symbolLayerIconFeatureList.add(singleFeatureFive);
+        symbolLayerIconFeatureList.add(singleFeatureSix);
+        symbolLayerIconFeatureList.add(singleFeatureSeven);
+        symbolLayerIconFeatureList.add(singleFeatureEight);
+        symbolLayerIconFeatureList.add(singleFeatureNine);
+        symbolLayerIconFeatureList.add(singleFeatureTen);
+
 //        symbolLayerIconFeatureList.add(singleFeatureFour);
 //        symbolLayerIconFeatureList.add(singleFeatureFive);
         return symbolLayerIconFeatureList;
@@ -509,18 +538,44 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
 
         if (title.equals("ICON_ID_ONE"))
         {
-            marker_label.setText( getString(R.string.scholes) + " 1");
+            marker_label.setText( getString(R.string.bondi));
             imageMain.setImageResource(R.drawable.dummy_one);
 
-        }else if (title.equals("ICON_ID_TWO"))
-        {
-            marker_label.setText( getString(R.string.scholes) + " 2");
+        } else if (title.equals("ICON_ID_TWO")) {
+            marker_label.setText( getString(R.string.broadway));
             imageMain.setImageResource(R.drawable.dummy_two);
 
-        }else  {
-            marker_label.setText( getString(R.string.scholes) + " 3");
+        } else if (title.equals("ICON_ID_THREE")) {
+            marker_label.setText( getString(R.string.darlinghurst));
             imageMain.setImageResource(R.drawable.dummy);
 
+        } else if (title.equals("ICON_ID_FOUR")) {
+            marker_label.setText(getString(R.string.lane_cove));
+            imageMain.setImageResource(R.drawable.dummy);
+
+        } else if (title.equals("ICON_ID_FIVE")) {
+            marker_label.setText(getString(R.string.manly));
+            imageMain.setImageResource(R.drawable.dummy);
+
+        } else if (title.equals("ICON_ID_SIX")) {
+            marker_label.setText(getString(R.string.newtown));
+            imageMain.setImageResource(R.drawable.dummy);
+
+        } else if (title.equals("ICON_ID_SEVEN")) {
+            marker_label.setText( getString(R.string.parramatta));
+            imageMain.setImageResource(R.drawable.dummy);
+
+        } else if (title.equals("ICON_ID_EIGHT")) {
+            marker_label.setText(getString(R.string.randwick));
+            imageMain.setImageResource(R.drawable.dummy);
+
+        } else if (title.equals("ICON_ID_NINE")) {
+            marker_label.setText(getString(R.string.syd_CBD));
+            imageMain.setImageResource(R.drawable.dummy);
+
+        } else {
+            marker_label.setText(getString(R.string.test));
+            imageMain.setImageResource(R.drawable.dummy);
         }
     }
 }
