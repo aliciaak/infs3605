@@ -3,6 +3,7 @@ package com.example.infs3605;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PointF;
@@ -441,7 +442,12 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        Toast.makeText(getActivity(), "onRequestPermissionsResult", Toast.LENGTH_LONG).show();
         permissionsManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        int length = grantResults.length;
+//        if(length > 0){
+//            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+//        }
     }
 
     @Override
@@ -451,8 +457,16 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
 
     @Override
     public void onPermissionResult(boolean granted) {
+        Toast.makeText(getActivity(),granted + "", Toast.LENGTH_LONG).show();
+
         if (granted) {
-            enableLocationComponent(mapboxMap.getStyle());
+            mapboxMap.getStyle(new Style.OnStyleLoaded(){
+                @Override
+                        public void onStyleLoaded(@NonNull Style style){
+                    enableLocationComponent(mapboxMap.getStyle());
+                }
+            });
+            //enableLocationComponent(mapboxMap.getStyle());
         } else {
             Toast.makeText(getActivity(), R.string.user_location_permission_not_granted, Toast.LENGTH_LONG).show();
             //finish();
@@ -584,7 +598,7 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
             imageMain.setImageResource(R.drawable.zstation4);
 
         } else {
-            marker_label.setText(getString(R.string.test));
+            marker_label.setText(getString(R.string.unsw));
             imageMain.setImageResource(R.drawable.zstation5);
         }
     }

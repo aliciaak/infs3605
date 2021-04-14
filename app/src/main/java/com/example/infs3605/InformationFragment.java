@@ -51,7 +51,7 @@ public class InformationFragment extends Fragment  {
             @Override
             public void onClick(View view) {
                 fragment = new YoutubePlayerFragment();
-                sendMyData(getResources().getString(R.string.redcrossdesc),getResources().getString(R.string.the_red_cross_video),getResources().getString(R.string.rc_what));
+                sendMyData(getResources().getString(R.string.redcrossdesc),getResources().getString(R.string.the_red_cross_video),getResources().getString(R.string.rc_what),false);
                 FragmentManager fragmentManager = getParentFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
             }
@@ -61,7 +61,7 @@ public class InformationFragment extends Fragment  {
             @Override
             public void onClick(View view) {
                 fragment = new YoutubePlayerFragment();
-                sendMyData(getResources().getString(R.string.Red_Cross_emblems),getResources().getString(R.string.Red_Cross_emblems_video),getResources().getString(R.string.Red_Cross_emblems_title));
+                sendMyData(getResources().getString(R.string.Red_Cross_emblems),getResources().getString(R.string.Red_Cross_emblems_video),getResources().getString(R.string.Red_Cross_emblems_title),false);
                 FragmentManager fragmentManager = getParentFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
             }
@@ -71,17 +71,18 @@ public class InformationFragment extends Fragment  {
             @Override
             public void onClick(View view) {
                 fragment = new YoutubePlayerFragment();
-                sendMyData(getResources().getString(R.string.use_the_emblems),getResources().getString(R.string.use_the_emblems_video),getResources().getString(R.string.use_the_emblems_title));
+                sendMyData(getResources().getString(R.string.use_the_emblems),getResources().getString(R.string.use_the_emblems_video),getResources().getString(R.string.use_the_emblems_title),true);
                 FragmentManager fragmentManager = getParentFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
             }
         });
     }
 
-    private void sendMyData(String str,String str2,String str3) {
+    private void sendMyData(String str, String str2, String str3, boolean isImageShow) {
         bundle.putString("redcrossdesc", str);
         bundle.putString("youtubeLink", str2);
         bundle.putString("redcrosstitle", str3);
+        bundle.putBoolean("isImageShow", isImageShow);
         fragment.setArguments(bundle);
     }
 }

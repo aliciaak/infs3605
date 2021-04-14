@@ -9,6 +9,10 @@ import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -231,7 +235,14 @@ public class MapBoxNavigationActivity extends AppCompatActivity implements Progr
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
-        Toast.makeText(this, "You will soon be entering a conflict-free zone. This is a safe area!", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "You will soon be entering a conflict-free zone. This is a safe area!", Toast.LENGTH_LONG).show();
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.cust_toast_layout,(ViewGroup)findViewById(R.id.relativeLayout1));
 
+        Toast toast = new Toast(this);
+        toast.setView(view);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
     }
 }

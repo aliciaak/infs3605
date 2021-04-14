@@ -21,18 +21,21 @@
     <string name="load">Loading</string>
 
     <string name="start_nav">Start Navigation</string>
-    <string name="scholes">Schole\'s View Shelter</string>
+    <string name="alert">ALERT</string>
+    <string name="safe_zone">You will soon be entering a conflict-free zone. This is a safe area!</string>
 
-    <string name="bondi">Bondi Junction RC Station</string>
-    <string name="broadway">Broadway RC Station</string>
-    <string name="darlinghurst">Darlinghurst RC Station</string>
-    <string name="lane_cove">Lane Cove RC Station</string>
-    <string name="manly">Manly RC Station</string>
-    <string name="newtown">Newtown RC Station</string>
-    <string name="parramatta">Parramatta RC Station</string>
-    <string name="randwick">Randwick RC Station</string>
-    <string name="syd_CBD">Sydney CBD RC Station</string>
-    <string name="test">test RC Station</string>
+
+    <string name="scholes">Schole\'s View Shelter</string>
+    <string name="bondi">Bondi Junction Shelter</string>
+    <string name="broadway">Broadway Shelter</string>
+    <string name="darlinghurst">Darlinghurst Shelter</string>
+    <string name="lane_cove">Lane Cove Shelter</string>
+    <string name="manly">Manly Shelter</string>
+    <string name="newtown">Newtown Shelter</string>
+    <string name="parramatta">Parramatta Shelter</string>
+    <string name="randwick">Randwick Shelter</string>
+    <string name="syd_CBD">Sydney CBD Shelter</string>
+    <string name="unsw">UNSW Shelter</string>
 
     <string name="distance">15 minutes / 5.3 km</string>
 
@@ -60,7 +63,7 @@
     <string name="use_the_emblems_video">yBIS2mj0vQ4</string>
 
     <string name="redcrossdesc">The work of the ICRC is based on the Geneva Conventions of 1949, their Additional Protocols, its Statutes those of the International Red Cross and Red Crescent Movement and the resolutions of the International Conferences of the Red Cross and Red Crescent. The ICRC is an independent, neutral organization ensuring humanitarian protection and assistance for victims of war and armed violence. It takes action in response to emergencies and promotes respect for international humanitarian law and its implementation in national law.</string>
-    <string name="Red_Cross_emblems">The red cross, red crescent and red crystal emblems mean "\"don't shoot\" and provide protection for military medical services and relief workers in armed conflicts.\n\nThere are two main uses of the emblems: protective and indicative use. Firstly, the emblems are a visible sign in armed conflict of the protection given to the medical services, equipment and buildings of the armed forces under international law. That protection extends to certain humanitarian organizations working alongside the military to relieve the suffering of the wounded, prisoners and civilians caught up in the conflict. This first use is usually referred to as "\"protective use\".\n\nSecondly, National Red Cross and Red Crescent Societies around the world are allowed to use the emblems to identify themselves as part of a global network known as the International Red Cross and Red Crescent Movement. This use is called the "\"indicative use\".</string>
-    <string name="use_the_emblems">Some of the common forms of misuse include first aid kits and medical products, repair services, maps and street directories, and children\'s toys. They are often seen, again wrongly, on surgeries and pharmacies.\n\nA misuse can either be a straight reproduction of the emblem, or a design that incorporates or stylises the red cross.</string>
+    <string name="Red_Cross_emblems">The red cross, red crescent and red crystal emblems mean "\"don't shoot\" and provide protection for military medical services and relief workers in armed conflicts.\n\nThere are two main uses of the emblems: protective and indicative use. Firstly, the emblems are a visible sign in armed conflict of the protection given to the medical services, equipment and buildings of the armed forces under international law. That protection extends to certain humanitarian organizations working alongside the military to relieve the suffering of the wounded, prisoners and civilians caught up in the conflict. This first use is usually referred to as "\"protective use\".\n\nSecondly, National Red Cross and Red Crescent Societies around the world are allowed to use the emblems to identify themselves as part of a global network known as the International Red Cross and Red Crescent Movement. This use is called the "\"indicative use\". \n</string>
+    <string name="use_the_emblems">Some of the common forms of misuse include first aid kits and medical products, repair services, maps and street directories, and children\'s toys. They are often seen, again wrongly, on surgeries and pharmacies.\n\nA misuse can either be a straight reproduction of the emblem, or a design that incorporates or stylises the red cross. \n\n</string>
 
 </resources>
