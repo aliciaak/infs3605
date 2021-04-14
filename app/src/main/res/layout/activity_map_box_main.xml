@@ -111,7 +111,7 @@
                     android:id="@+id/label_of_duration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/distance"
+
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 

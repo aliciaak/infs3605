@@ -53,9 +53,12 @@ import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
+import com.mapbox.turf.TurfConversion;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.text.DecimalFormat;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -287,25 +290,25 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         singleFeatureThree.addStringProperty("ICON_PROPERTY", "ICON_ID_THREE");
 
         Feature singleFeatureFour = Feature.fromGeometry( Point.fromLngLat(151.16966, -33.81384));
-        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_FOUR");
+        singleFeatureFour.addStringProperty("ICON_PROPERTY", "ICON_ID_FOUR");
 
         Feature singleFeatureFive = Feature.fromGeometry( Point.fromLngLat(151.28557, -33.79579));
-        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_FIVE");
+        singleFeatureFive.addStringProperty("ICON_PROPERTY", "ICON_ID_FIVE");
 
         Feature singleFeatureSix = Feature.fromGeometry( Point.fromLngLat(151.18742, -33.89231));
-        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_SIX");
+        singleFeatureSix.addStringProperty("ICON_PROPERTY", "ICON_ID_SIX");
 
         Feature singleFeatureSeven = Feature.fromGeometry( Point.fromLngLat(151.00716, -33.82066));
-        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_SEVEN");
+        singleFeatureSeven.addStringProperty("ICON_PROPERTY", "ICON_ID_SEVEN");
 
         Feature singleFeatureEight = Feature.fromGeometry( Point.fromLngLat(151.24014, -33.91375));
-        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_EIGHT");
+        singleFeatureEight.addStringProperty("ICON_PROPERTY", "ICON_ID_EIGHT");
 
         Feature singleFeatureNine = Feature.fromGeometry( Point.fromLngLat(151.20553, -33.87382));
-        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_NINE");
+        singleFeatureNine.addStringProperty("ICON_PROPERTY", "ICON_ID_NINE");
 
         Feature singleFeatureTen = Feature.fromGeometry( Point.fromLngLat(151.22005, -33.90975));
-        singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_TEN");
+        singleFeatureTen.addStringProperty("ICON_PROPERTY", "ICON_ID_TEN");
 
 
 
@@ -381,7 +384,11 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
                         currentRoute = response.body().routes().get(0);
                         Log.d("Duration ==> ", currentRoute.duration().toString());
                         Log.d("Distance ==> ", currentRoute.distance().toString());
-                        //label_of_duration.setText("");
+
+                        String duration = String.valueOf(TimeUnit.SECONDS.toMinutes(currentRoute.duration().longValue()));
+                        String finalConvertedFormattedDistance = String.valueOf(new DecimalFormat("#.##")
+                                .format(TurfConversion.convertLength(currentRoute.distance(),"meters","kilometres")));
+                        label_of_duration.setText(duration + " Mins " + " / " + finalConvertedFormattedDistance + " Kms");
 
                         // Draw the route on the map
                         if (navigationMapRoute != null) {
@@ -534,6 +541,9 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
     }
 
     private void showDetailView(String title) {
+        if(currentRoute != null){
+            Log.e("","==Duration==>" + currentRoute.duration());
+        }
         cv_one_login.setVisibility(View.VISIBLE);
 
         if (title.equals("ICON_ID_ONE"))
