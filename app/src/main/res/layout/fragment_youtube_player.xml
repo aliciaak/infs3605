@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".YoutubePlayerFragment">
+
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:videoId="S0Q4gqBUs7c"
+        app:autoPlay="true"
+        app:showFullScreenButton="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/youtube_player_view"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rc_what"
+            android:layout_below="@+id/youtube_player_view"
+            android:textColor="#0C0C0C"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp" />
+
+        <TextView
+            android:id="@+id/pageDesc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/pageTitle"
+            android:textColor="#0C0C0C"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:layout_marginTop="20sp"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/backButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/round_corner_red"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_margin="40dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@null"/>
+
+    </LinearLayout>
+</RelativeLayout>

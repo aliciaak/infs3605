@@ -1,102 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:context=".InformationFragment">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/about_emblems"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    <Button
-        android:id="@+id/aboutRedCrossButton"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:background="@drawable/buttonstyle"
-        android:stateListAnimator="@null"
-        android:text="About the Red Cross"
-        android:textAllCaps="false"
-        android:textColor="#FFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pageTitle"
-        app:layout_constraintVertical_bias="0.07" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:background="@drawable/buttonstyle"
-        android:stateListAnimator="@null"
-        android:text="About Red Cross Emblems"
-        android:textAllCaps="false"
-        android:textColor="#FFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aboutRedCrossButton"
-        app:layout_constraintVertical_bias="0.045" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:background="@drawable/buttonstyle"
-        android:stateListAnimator="@null"
-        android:text="Protecting the Emblems"
-        android:textAllCaps="false"
-        android:textColor="#FFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.083" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="330dp"
-        android:layout_height="70dp"
-        android:background="@drawable/buttonstyle"
-        android:stateListAnimator="@null"
-        android:text="Guide to Emblem Usage"
-        android:textAllCaps="false"
-        android:textColor="#FFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.14" />
-
     <TextView
         android:id="@+id/pageTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Red Cross Information"
+        android:text="@string/red_cross_info"
         android:textColor="#0C0C0C"
         android:textSize="25sp"
+        android:gravity="center"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423" />
+        android:layout_margin="30sp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/pageTitle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/red_cross_blurb"
+        android:textColor="#0C0C0C"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_below="@+id/pageTitle"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/pageTitle2"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/RedCrossButton"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/buttonstyle"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/the_red_cross_title"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_centerInParent="true" />
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_baseline_add_circle_outline_24"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="30dp"
+                android:contentDescription="@null"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/TheRedCrossEmblems"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/buttonstyle"
+            android:textAllCaps="false"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/the_red_cross_emblems"
+                android:textColor="#0C0C0C"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textAlignment="textStart"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_centerInParent="true" />
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_baseline_add_circle_outline_24"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="30dp"
+                android:contentDescription="@null"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/CorrectEmblemsUsage"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/buttonstyle"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/correct_emblem_usage"
+                android:textColor="#0C0C0C"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textAlignment="textStart"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_centerInParent="true" />
+
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_baseline_add_circle_outline_24"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="30dp"
+                android:contentDescription="@null"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

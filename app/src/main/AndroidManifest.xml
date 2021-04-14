@@ -44,19 +44,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".FingerprintActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".InformationPages.AboutEmblems" />
         <activity android:name=".FamilyActivity" />
         <activity android:name=".MainActivity" />
+
         <activity
             android:name=".DetailActivity"
             android:theme="@style/Theme.AppCompat.Light.Dialog">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".MapBoxNavigationActivity" />
