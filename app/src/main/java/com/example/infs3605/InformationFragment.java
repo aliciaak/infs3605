@@ -51,7 +51,7 @@ public class InformationFragment extends Fragment  {
             @Override
             public void onClick(View view) {
                 fragment = new YoutubePlayerFragment();
-                sendMyData(getResources().getString(R.string.redcrossdesc),getResources().getString(R.string.the_red_cross_video),getResources().getString(R.string.the_red_cross_title));
+                sendMyData(getResources().getString(R.string.redcrossdesc),getResources().getString(R.string.the_red_cross_video),getResources().getString(R.string.rc_what));
                 FragmentManager fragmentManager = getParentFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
             }

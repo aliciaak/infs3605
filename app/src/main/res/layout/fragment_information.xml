@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/red_cross_info"
+        android:fontFamily="@font/merriweather_bold"
         android:textColor="#0C0C0C"
         android:textSize="25sp"
         android:gravity="center"
