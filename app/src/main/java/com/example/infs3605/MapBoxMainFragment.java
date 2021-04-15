@@ -13,10 +13,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -24,12 +27,14 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.api.directions.v5.models.DirectionsResponse;
@@ -56,6 +61,7 @@ import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 import com.mapbox.turf.TurfConversion;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -91,6 +97,9 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
     private TextView marker_label;
     private TextView label_of_duration;
 
+    private MaterialSpinner category;
+    ArrayAdapter<String> arrayAdapter;
+
     /////////////
 
     ToggleButton btnEC;
@@ -122,6 +131,7 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         close = view.findViewById(R.id.close);
         button = view.findViewById(R.id.startButton);
         bottom_popup_button = view.findViewById(R.id.bottom_popup_button);
+        category = view.findViewById(R.id.category);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,8 +145,36 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
 
         btnEC = view.findViewById(R.id.btnEC);
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add( getString(R.string.bondi));
+        arrayList.add(getString(R.string.broadway));
+        arrayList.add(getString(R.string.darlinghurst));
+        arrayList.add(getString(R.string.lane_cove));
+        arrayList.add(getString(R.string.manly));
+        arrayList.add(getString(R.string.newtown));
+        arrayList.add(getString(R.string.parramatta));
+        arrayList.add(getString(R.string.randwick));
+        arrayList.add(getString(R.string.syd_CBD));
+        arrayList.add(getString(R.string.unsw));
+
+        arrayAdapter =new ArrayAdapter<String>(getContext(),R.layout.support_simple_spinner_dropdown_item,arrayList);
+        category.setAdapter(arrayAdapter);
+
+        category.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                showDropDown(item.toString());
+            }
+        });
+        category.setOnNothingSelectedListener(new MaterialSpinner.OnNothingSelectedListener() {
+            @Override
+            public void onNothingSelected(MaterialSpinner spinner) {
+
+                category.setHint("Browse Red Cross Stations");
 
 
+            }
+        });
 
         btnEC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -597,7 +635,54 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
             marker_label.setText(getString(R.string.syd_CBD));
             imageMain.setImageResource(R.drawable.zstation4);
 
-        } else {
+        } else  if (title.equals("ICON_ID_TEN")) {
+            marker_label.setText(getString(R.string.unsw));
+            imageMain.setImageResource(R.drawable.zstation5);
+        }
+    }
+
+    private void showDropDown(String title) {
+
+        cv_one_login.setVisibility(View.VISIBLE);
+
+        if (title.equals( getString(R.string.bondi)))
+        {
+            marker_label.setText( getString(R.string.bondi));
+            imageMain.setImageResource(R.drawable.zstation1);
+
+        } else if (title.equals(getString(R.string.broadway))) {
+            marker_label.setText( getString(R.string.broadway));
+            imageMain.setImageResource(R.drawable.zstation2);
+
+        } else if (title.equals( getString(R.string.darlinghurst))) {
+            marker_label.setText( getString(R.string.darlinghurst));
+            imageMain.setImageResource(R.drawable.zstation3);
+
+        } else if (title.equals(getString(R.string.lane_cove))) {
+            marker_label.setText(getString(R.string.lane_cove));
+            imageMain.setImageResource(R.drawable.zstation4);
+
+        } else if (title.equals(getString(R.string.manly))) {
+            marker_label.setText(getString(R.string.manly));
+            imageMain.setImageResource(R.drawable.zstation5);
+
+        } else if (title.equals(getString(R.string.newtown))) {
+            marker_label.setText(getString(R.string.newtown));
+            imageMain.setImageResource(R.drawable.zstation1);
+
+        } else if (title.equals(getString(R.string.parramatta))) {
+            marker_label.setText( getString(R.string.parramatta));
+            imageMain.setImageResource(R.drawable.zstation2);
+
+        } else if (title.equals(getString(R.string.randwick))) {
+            marker_label.setText(getString(R.string.randwick));
+            imageMain.setImageResource(R.drawable.zstation3);
+
+        } else if (title.equals(getString(R.string.syd_CBD))) {
+            marker_label.setText(getString(R.string.syd_CBD));
+            imageMain.setImageResource(R.drawable.zstation4);
+
+        } else  if (title.equals(getString(R.string.unsw))) {
             marker_label.setText(getString(R.string.unsw));
             imageMain.setImageResource(R.drawable.zstation5);
         }
