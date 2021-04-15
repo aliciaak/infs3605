@@ -10,25 +10,25 @@
         android:id="@+id/pageTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/red_cross_info"
+        android:layout_margin="30sp"
+        android:gravity="center"
         android:fontFamily="@font/merriweather_bold"
+        android:text="@string/red_cross_info"
         android:textColor="#0C0C0C"
         android:textSize="25sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:layout_margin="30sp"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/pageTitle2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/red_cross_blurb"
-        android:textColor="#0C0C0C"
-        android:textSize="16sp"
-        android:gravity="center"
         android:layout_below="@+id/pageTitle"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"/>
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="@string/red_cross_blurb"
+        android:textColor="#0C0C0C"
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

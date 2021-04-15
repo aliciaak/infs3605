@@ -1,18 +1,14 @@
 package com.example.infs3605;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class User {
-
     public String name, email, password, language, type,blood;
     public Long id;
-
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -20,7 +16,6 @@ public class User {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -28,7 +23,6 @@ public class User {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -36,7 +30,6 @@ public class User {
     public String getLanguage() {
         return language;
     }
-
     public void setLanguage(String language) {
         this.language = language;
     }
@@ -44,7 +37,6 @@ public class User {
     public String getType() {
         return type;
     }
-
     public void setType(String type) {
         this.type = type;
     }
@@ -52,18 +44,15 @@ public class User {
     public String getBlood() {
         return blood;
     }
-
     public void setBlood(String blood) {
         this.blood = blood;
     }
 
-    public User(){
-    }
+    public User(){ }
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -95,6 +84,4 @@ public class User {
         }
         return users.get(users.size() - 1);
     }
-
-
 }

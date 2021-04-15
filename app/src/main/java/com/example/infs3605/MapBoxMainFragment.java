@@ -3,7 +3,6 @@ package com.example.infs3605;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PointF;
@@ -18,8 +17,6 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -27,7 +24,6 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -61,7 +57,6 @@ import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 import com.mapbox.turf.TurfConversion;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -96,11 +91,8 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
     private CardView cv_one_login;
     private TextView marker_label;
     private TextView label_of_duration;
-
     private MaterialSpinner category;
     ArrayAdapter<String> arrayAdapter;
-
-    /////////////
 
     ToggleButton btnEC;
     Button btnAdd;
@@ -111,8 +103,6 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
     private RecyclerView.LayoutManager layoutManager;
 
     Dialog mDialog;
-
-
 
     @Nullable
     @Override
@@ -139,7 +129,6 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
             }
         });
 
-        //////////recyclerView
         LinearLayout linearLayout = view.findViewById(R.id.design_bottom_sheet);
 
         bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
@@ -166,13 +155,11 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
                 showDropDown(item.toString());
             }
         });
+
         category.setOnNothingSelectedListener(new MaterialSpinner.OnNothingSelectedListener() {
             @Override
             public void onNothingSelected(MaterialSpinner spinner) {
-
                 category.setHint("Browse Red Cross Stations");
-
-
             }
         });
 
@@ -214,7 +201,6 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
             }
         });
 
-
         rvMember = view.findViewById(R.id.rvMember);
 
         layoutManager = new LinearLayoutManager(getActivity());
@@ -249,9 +235,6 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
 
         List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
         symbolLayerIconFeatureList.addAll(initCoordinateData());
-//        symbolLayerIconFeatureList.add(Feature.fromGeometry( Point.fromLngLat(151.18148855028312, -33.79166544257542)));
-//        symbolLayerIconFeatureList.add(Feature.fromGeometry( Point.fromLngLat(151.13211352314386, -33.80877249446269)));
-//        symbolLayerIconFeatureList.add(Feature.fromGeometry( Point.fromLngLat(151.16819867465995, -33.89075348207522)));
 
         mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mapbox/cjf4m44iw0uza2spb3q0a7s41")
                 // Add the SymbolLayer icon image to the map style
@@ -284,13 +267,6 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
                                 Toast.makeText(getActivity(),"Failed to retrieve route. please try again!", Toast.LENGTH_LONG).show();
                             }
                             startActivity(new Intent(getActivity(),  MapBoxNavigationActivity.class).putExtra("currentRoute",currentRoute));
-                            //                            boolean simulateRoute = true;
-                            //                            NavigationLauncherOptions options = NavigationLauncherOptions.builder()
-                            //                                    .directionsRoute(currentRoute)
-                            //                                    .shouldSimulateRoute(simulateRoute)
-                            //                                    .build();
-                            //   Call this method with Context from within an Activity
-                            //                            NavigationLauncher.startNavigation(MapBoxMainActivity.this, options);
                         } else {
                             showDetailUI();
                         }
@@ -313,12 +289,6 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
     }
 
     private List<Feature> initCoordinateData() {
-
-        //        symbolLayerIconFeatureList.add(Feature.fromGeometry( ));
-//        symbolLayerIconFeatureList.add(Feature.fromGeometry( ));
-//        symbolLayerIconFeatureList.add(Feature.fromGeometry( ));
-
-
         Feature singleFeatureOne = Feature.fromGeometry( Point.fromLngLat(151.24904, -33.89174));
         singleFeatureOne.addStringProperty("ICON_PROPERTY", "ICON_ID_ONE");
 
@@ -349,14 +319,6 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         Feature singleFeatureTen = Feature.fromGeometry( Point.fromLngLat(151.22005, -33.90975));
         singleFeatureTen.addStringProperty("ICON_PROPERTY", "ICON_ID_TEN");
 
-
-
-//// Not adding a ICON_PROPERTY property to fourth and fifth features in order to show off the default
-//// nature of the match expression used in the example up above
-//        Feature singleFeatureFour = Feature.fromGeometry( Point.fromLngLat(78.42315673828125,  17.43320034474222));
-//
-//        Feature singleFeatureFive = Feature.fromGeometry( Point.fromLngLat(80.16448974609375, 12.988500396985364));
-
         List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
         symbolLayerIconFeatureList.add(singleFeatureOne);
         symbolLayerIconFeatureList.add(singleFeatureTwo);
@@ -369,21 +331,11 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         symbolLayerIconFeatureList.add(singleFeatureNine);
         symbolLayerIconFeatureList.add(singleFeatureTen);
 
-//        symbolLayerIconFeatureList.add(singleFeatureFour);
-//        symbolLayerIconFeatureList.add(singleFeatureFive);
         return symbolLayerIconFeatureList;
     }
 
     @Override
     public boolean onMapClick(@NonNull LatLng point) {
-//        GeoJsonSource source = mapboxMap.getStyle().getSourceAs("destination-source-id");
-//        if (source != null) {
-//            source.setGeoJson(Feature.fromGeometry(destinationPoint));
-//        }
-//        getRoute(originPoint, destinationPoint);
-//        button.setEnabled(true);
-//        button.setBackgroundResource(R.color.mapboxBlue);
-//        showDetailView();
         PointF screenPoint = mapboxMap.getProjection().toScreenLocation(point);
         List<Feature> features =  mapboxMap.queryRenderedFeatures(screenPoint,"LAYER_ID");
 
@@ -396,9 +348,7 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
             getRoute(originPoint , destinationPoint);
             showDetailView(title);
         }
-
         Timber.d("===> ");
-
         return true;
     }
 
@@ -482,10 +432,6 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         Toast.makeText(getActivity(), "onRequestPermissionsResult", Toast.LENGTH_LONG).show();
         permissionsManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        int length = grantResults.length;
-//        if(length > 0){
-//            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
-//        }
     }
 
     @Override
@@ -555,15 +501,13 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
 
     private void showDialog() {
         new AlertDialog.Builder(getActivity())
-                .setTitle("Designacao")
-                .setMessage("Endereço: " + "Morada" + "\n" + "Telefone: ")
+                .setTitle("Designation")
+                .setMessage("Address: " + "Home" + "\n" + "Telephone: ")
                 .setPositiveButton("Ir", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        //new GetDirecoes().execute();//Enviar as coordenadas
-                        //  mBottomSheetBehavior.setPeekHeight(250);
                     }
                 })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // do nothing
                     }

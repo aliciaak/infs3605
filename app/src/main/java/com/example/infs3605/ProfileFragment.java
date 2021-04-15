@@ -34,15 +34,13 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
-//user first,then uid
+        //user first,then uid
         DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getUid());
 
         tvName = v.findViewById(R.id.tvName);
         tvBlood = v.findViewById(R.id.tvBlood);
         tvEmail = v.findViewById(R.id.tvEmail);
         tvId = v.findViewById(R.id.tvId);
-
-        //System.out.println(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         userReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -56,16 +54,11 @@ public class ProfileFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
-
-
         // Inflate the layout for this fragment
         return v;
-
-
     }
 
     public void launchFamilyActivity() {

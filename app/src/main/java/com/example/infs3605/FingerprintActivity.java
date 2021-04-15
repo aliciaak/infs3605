@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -32,7 +31,6 @@ public class FingerprintActivity extends AppCompatActivity {
 
         BiometricManager biometricManager = BiometricManager.from(this);
 
-
         Executor executor = ContextCompat.getMainExecutor(this);
 
         final BiometricPrompt biometricPrompt = new BiometricPrompt(FingerprintActivity.this, executor, new BiometricPrompt.AuthenticationCallback() {
@@ -51,9 +49,7 @@ public class FingerprintActivity extends AppCompatActivity {
             @Override
             public void onAuthenticationFailed() {
                 super.onAuthenticationFailed();
-            }
-        });
-
+            }});
                 final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
                 .setTitle("Login")
                 .setDescription("Please use your fingerprint to login")
@@ -66,8 +62,6 @@ public class FingerprintActivity extends AppCompatActivity {
                 biometricPrompt.authenticate(promptInfo);
             }
         });
-
-
     }
 
     public void launchActivity(){

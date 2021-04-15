@@ -6,14 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
@@ -34,7 +32,6 @@ public class YoutubePlayerFragment extends Fragment {
         youTubePlayerView  = view.findViewById(R.id.youtube_player_view);
         backButton  = view.findViewById(R.id.backButton);
         pageDesc  = view.findViewById(R.id.pageDesc);
-//        pageDesc.setMovementMethod(new ScrollingMovementMethod());
         pageTitle  = view.findViewById(R.id.pageTitle);
         imgView  = view.findViewById(R.id.imgView);
         bundle = this.getArguments();
@@ -51,7 +48,6 @@ public class YoutubePlayerFragment extends Fragment {
         youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-//                setPlayNextVideoButtonClickListener(youTubePlayer);
                 String videoId = bundle.getString("youtubeLink", "");
                 YouTubePlayerUtils.loadOrCueVideo(
                         youTubePlayer, getLifecycle(),
@@ -76,15 +72,6 @@ public class YoutubePlayerFragment extends Fragment {
             else
                 imgView.setVisibility(View.GONE);
         }
-
-//        youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
-//            @Override
-//            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-//                String videoId = bundle.getString("youtubeLink", "");
-//                youTubePlayer.loadVideo(videoId, 0);
-//            }
-//        });
-
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

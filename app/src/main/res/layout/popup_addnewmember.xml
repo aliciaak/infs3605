@@ -2,19 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="450dp"
     android:layout_width="350dp"
-    android:background="#FFFFFF"
-    android:layout_gravity="center">
-
+    android:layout_gravity="center"
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Add a Family Member"
+        android:text="@string/add_fam"
         android:textColor="#000000"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -27,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Name"
+        android:text="@string/name"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -63,7 +61,7 @@
         android:layout_width="58dp"
         android:layout_height="21dp"
         android:layout_marginTop="16dp"
-        android:text="User ID"
+        android:text="@string/user_ID"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -76,7 +74,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-
         android:inputType="textPersonName"
         android:paddingStart="20dp"
         android:paddingLeft="12dp"
@@ -116,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Family Relationship"
+        android:text="@string/fam_relation"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -129,7 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/round_corner_red"
-        android:text="Add New Member"
+        android:text="@string/add_fam"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"

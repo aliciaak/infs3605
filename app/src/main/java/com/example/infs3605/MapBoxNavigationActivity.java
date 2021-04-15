@@ -78,7 +78,6 @@ public class MapBoxNavigationActivity extends AppCompatActivity implements Progr
     public void onLowMemory() {
         super.onLowMemory();
         navigationView.onLowMemory();
-
     }
 
     @Override
@@ -109,7 +108,6 @@ public class MapBoxNavigationActivity extends AppCompatActivity implements Progr
     protected void onDestroy() {
         navigationView.onDestroy();
         super.onDestroy();
-
     }
 
     @Override
@@ -149,22 +147,18 @@ public class MapBoxNavigationActivity extends AppCompatActivity implements Progr
 
     @Override
     public void onCancelNavigation() {
-
     }
 
     @Override
     public void onNavigationFinished() {
-
     }
 
     @Override
     public void onNavigationRunning() {
-
     }
 
     @Override
     public void onInstructionListVisibilityChanged(boolean visible) {
-
     }
 
     @Override
@@ -174,29 +168,24 @@ public class MapBoxNavigationActivity extends AppCompatActivity implements Progr
 
     @Override
     public void onOffRoute(Point offRoutePoint) {
-
     }
 
     @Override
     public void onRerouteAlong(DirectionsRoute directionsRoute) {
-
     }
 
     @Override
     public void onFailedReroute(String errorMessage) {
-
     }
 
     @Override
     public void onArrival() {
-
     }
 
     @Override
     public BannerInstructions willDisplay(BannerInstructions instructions) {
         return instructions;
     }
-
 
     public static final String CHANNNEL_ID = " Channel";
     public static final int NOTIFICATION_ID = 200;
@@ -215,7 +204,6 @@ public class MapBoxNavigationActivity extends AppCompatActivity implements Progr
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNNEL_ID)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), android.R.mipmap.sym_def_app_icon))
-//                    .setLargeIconLargeIcon(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_round), 128, 128, false))
                 .setSmallIcon(android.R.drawable.ic_dialog_dialer)
                 .setColor(ContextCompat.getColor(this, R.color.teal_200))
                 .setContentTitle("You are near to destination!")
@@ -235,7 +223,6 @@ public class MapBoxNavigationActivity extends AppCompatActivity implements Progr
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
-        //Toast.makeText(this, "You will soon be entering a conflict-free zone. This is a safe area!", Toast.LENGTH_LONG).show();
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.cust_toast_layout,(ViewGroup)findViewById(R.id.relativeLayout1));
 

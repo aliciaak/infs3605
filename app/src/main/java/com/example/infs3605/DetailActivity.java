@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -68,17 +67,9 @@ public class DetailActivity extends AppCompatActivity implements AdapterView.OnI
                     mDialog.setContentView(R.layout.popup_notification);
                     mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                     mDialog.show();
-
                 }
             }
         });
-
-
-
-
-
-
-
     }
 
     @Override
@@ -89,7 +80,6 @@ public class DetailActivity extends AppCompatActivity implements AdapterView.OnI
             String valueFromSpinner = parent.getItemAtPosition(position).toString();
             status = valueFromSpinner;
         }
-
     }
 
     @Override
@@ -97,6 +87,4 @@ public class DetailActivity extends AppCompatActivity implements AdapterView.OnI
         String valueFromSpinner = "Not Entered";
         status = valueFromSpinner;
     }
-
-
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
@@ -12,8 +11,7 @@
         android:background="#FFE8E6E6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
+        app:layout_constraintStart_toStartOf="parent" >
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -21,7 +19,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
         android:layout_marginTop="64dp"
         android:text="@string/start"
         android:textColor="#0C0C0C"
@@ -36,7 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
         android:text="@string/enter_details"
         android:textColor="#000000"
         android:textSize="23sp"
@@ -163,7 +159,7 @@
         app:layout_constraintEnd_toEndOf="@+id/txtLanguage"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/spBlood">
+        app:layout_constraintTop_toBottomOf="@+id/spBlood" >
 
         <RadioButton
             android:id="@+id/radioCivilian"
@@ -179,7 +175,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
             android:button="@drawable/radio_button_custom"
             android:text="@string/rc_staff"
             android:textSize="20sp" />
@@ -190,7 +185,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:background="@drawable/spinner"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
         app:layout_constraintEnd_toEndOf="@+id/txtLanguage"
@@ -203,7 +197,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Blood Type"
+        android:text="@string/blood_type"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/txtLanguage"
@@ -214,11 +208,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="No.id"
+        android:text="@string/user_ID"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

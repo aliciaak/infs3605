@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
@@ -14,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" >
 
         <EditText
             android:id="@+id/txtPasswordLogin"
@@ -23,13 +22,12 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/input_edge"
             android:drawableStart="@drawable/ic_baseline_lock_24"
-            android:drawableLeft="@drawable/ic_baseline_lock_24"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:hint="Password"
-            android:inputType="textPersonName"
+            android:hint="@string/pw"
+            android:inputType="textPassword"
             android:paddingStart="12dp"
-            android:paddingLeft="12dp"
+            android:paddingEnd="12dp"
             android:textColorHint="#000000"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/txtEmailLogin"
@@ -48,13 +46,14 @@
             android:layout_marginRight="64dp"
             android:background="@drawable/input_edge"
             android:drawableStart="@drawable/ic_round_person_24"
-            android:drawableLeft="@drawable/ic_round_person_24"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:hint="Email Address"
-            android:inputType="textPersonName"
+            android:hint="@string/email_address"
+            android:inputType="textEmailAddress"
             android:paddingStart="12dp"
             android:paddingLeft="12dp"
+            android:paddingEnd="12dp"
+            android:paddingRight="12dp"
             android:textColorHint="#000000"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="New User? Sign Up With Email"
+            android:text="@string/new_user"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -82,7 +81,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/round_corner"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="#000000"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/txtPasswordLogin"
@@ -95,13 +94,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Forgot Password?"
+            android:text="@string/forgot_pw"
             android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/txtPasswordLogin"
             app:layout_constraintTop_toBottomOf="@+id/txtPasswordLogin" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -109,9 +107,9 @@
         android:layout_width="104dp"
         android:layout_height="111dp"
         android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
         android:layout_marginTop="64dp"
         android:scaleType="centerCrop"
+        android:contentDescription="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/redcross" />
@@ -120,7 +118,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Red Cross Aid"
+        android:text="@string/rc_aid"
         android:textColor="#000000"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -131,7 +129,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aid for those in need,"
+        android:text="@string/aid_blurb1"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/textView3"
@@ -141,10 +139,9 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="in conflict zones."
+        android:text="@string/aid_blurb2"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

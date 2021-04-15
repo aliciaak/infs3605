@@ -67,7 +67,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spBlood.setAdapter(adapter);
 
-
         final LoadingDialog loadingDialog = new LoadingDialog(RegisterActivity.this);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
@@ -93,7 +92,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             }
         });
 
-
         //For storing location data
         /*databaseReference = FirebaseDatabase.getInstance().getReference("Location");
         mAuth = FirebaseAuth.getInstance();*/
@@ -107,7 +105,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 final String language = txtLanguage.getText().toString();
                 final String blood_type = blood;
                 final Long userId = Long.valueOf(Integer.parseInt(txtId.getText().toString())+1);
-
 
                 loadingDialog.startLoadingDialog1();
                 Handler handler = new Handler();
@@ -134,8 +131,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 if(TextUtils.isEmpty(language)){
                     Toast.makeText(RegisterActivity.this, "Please Enter Language", Toast.LENGTH_SHORT).show();
                 }
-
-
 
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -181,7 +176,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             String valueFromSpinner = parent.getItemAtPosition(position).toString();
             blood = valueFromSpinner;
         }
-
     }
 
     @Override

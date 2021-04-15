@@ -8,26 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".MapBoxMainFragment">
 
-    <!--    <com.mapbox.mapboxsdk.maps.MapView-->
-    <!--        android:id="@+id/mapbox"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        mapbox:mapbox_styleUrl="@string/mapbox_style_mapbox_streets"/>-->
-
-
-    <!--
-        <com.mapbox.mapboxsdk.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            mapbox:mapbox_cameraTargetLat="41.885"
-            mapbox:mapbox_cameraTargetLng="-87.679"
-            mapbox:mapbox_styleUrl="@string/mapbox_style_light"
-            mapbox:mapbox_cameraTilt="60"
-            mapbox:mapbox_cameraZoom="12" />
-    -->
-
-
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
@@ -59,42 +39,25 @@
         android:paddingLeft="5dp"
         android:layout_gravity="end"
         android:src="@drawable/redcross"
-        android:contentDescription="@null"/>
+        android:contentDescription="@null" />
 
     <RelativeLayout
-
         android:layout_width="fill_parent"
         android:layout_height="45dp"
+        android:gravity="center"
         android:background="@drawable/round_corner"
         android:visibility="visible"
         mapbox:layout_constraintStart_toStartOf="parent"
-        mapbox:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"
-        >
+        mapbox:layout_constraintTop_toTopOf="parent" >
+
         <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/category"
-            app:ms_dropdown_max_height="150dp"
-            >
+            app:ms_dropdown_max_height="150dp" >
 
         </com.jaredrummler.materialspinner.MaterialSpinner>
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Browse Red Cross Stations"-->
-        <!--             android:textSize="18sp"-->
-        <!--            android:layout_marginLeft="5dp"-->
-        <!--              />-->
-        <!--        <ImageView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_alignParentEnd="true"-->
-        <!--            android:layout_margin="5dp"-->
-        <!--            android:layout_marginRight="5dp"-->
-        <!--            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"/>-->
     </RelativeLayout>
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_one_login"
@@ -111,17 +74,17 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:cardPreventCornerOverlap="false"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true" >
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="10dp" >
 
 
                 <ImageView
@@ -138,15 +101,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginBottom="5dp"
-                    android:contentDescription="@null"
                     android:src="@drawable/zstation1"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    android:contentDescription="@null"/>
 
                 <TextView
                     android:id="@+id/marker_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/scholes"
+                    android:text="@string/unsw"
                     android:textColor="@android:color/black"
                     android:textSize="25sp" />
 
@@ -154,7 +117,6 @@
                     android:id="@+id/label_of_duration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -208,8 +170,6 @@
                         android:textColor="@color/black"
                         app:drawableLeftCompat="@drawable/tick"
                         app:drawableTint="@android:color/holo_green_dark" />
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -220,7 +180,7 @@
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
-                    android:visibility="gone">
+                    android:visibility="gone" >
 
                     <TextView
                         android:layout_width="match_parent"
@@ -231,13 +191,12 @@
                         android:textStyle="bold" />
 
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:drawablePadding="5dp"
                         android:gravity="center"
-                        android:text="@string/med_treat"
+                        android:text="@string/blankets"
                         android:textColor="@color/black"
                         app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
                         app:drawableTint="@android:color/holo_red_dark" />
@@ -248,18 +207,7 @@
                         android:layout_margin="5dp"
                         android:drawablePadding="5dp"
                         android:gravity="center"
-                        android:text="@string/food"
-                        android:textColor="@color/black"
-                        app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
-                        app:drawableTint="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="@string/water"
+                        android:text="@string/blood_donation"
                         android:textColor="@color/black"
                         app:drawableLeftCompat="@android:drawable/ic_menu_close_clear_cancel"
                         app:drawableTint="@android:color/holo_red_dark" />

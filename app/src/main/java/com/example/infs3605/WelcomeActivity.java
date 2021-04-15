@@ -19,10 +19,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class WelcomeActivity extends AppCompatActivity {
-
     TextView txtSignEmail;
     Button btnLogin;
     EditText txtEmailLogin,txtPasswordLogin;
@@ -72,8 +70,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     private void userLogin(){
@@ -103,6 +99,4 @@ public class WelcomeActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
-
-
 }

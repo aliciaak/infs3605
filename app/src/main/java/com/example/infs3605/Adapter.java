@@ -17,13 +17,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private LayoutInflater inflater;
     private final Listener mlistener;
 
-
     public Adapter(Context ctx, ArrayList<User> familyMember,Listener listener) {
        this.familyMember = familyMember;
        this.inflater = LayoutInflater.from(ctx);
        this.mlistener = listener;
     }
-
 
     @NonNull
     @Override
@@ -39,7 +37,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.name.setText(user.getName());
         holder.location.setText(user.getEmail());
         holder.locationStatus.setText(user.getPassword());
-
         holder.itemView.setTag(user.getName());
     }
 

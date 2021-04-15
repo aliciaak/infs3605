@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 
-
     <application
         android:name=".Home"
         android:allowBackup="true"
@@ -34,9 +33,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
         <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,7 +43,6 @@
 
         <activity android:name=".FingerprintActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".InformationPages.AboutEmblems" />
         <activity android:name=".FamilyActivity" />
         <activity android:name=".MainActivity" />
 
@@ -58,5 +53,4 @@
 
         <activity android:name=".MapBoxNavigationActivity" />
     </application>
-
 </manifest>

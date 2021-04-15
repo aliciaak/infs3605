@@ -7,10 +7,10 @@
 
     <TextView
         android:id="@+id/textView12"
+        android:text="@string/the_red_cross_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/the_red_cross_title"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,10 +18,10 @@
 
     <Button
         android:id="@+id/btn_back"
+        android:text="@string/the_red_cross_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/the_red_cross_title"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="@+id/textView12"

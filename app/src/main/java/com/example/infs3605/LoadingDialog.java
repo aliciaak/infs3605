@@ -18,7 +18,6 @@ public class LoadingDialog {
         registerActivity = myActivity1;
     }
 
-
     void startLoadingDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(welcomeActivity);
 
@@ -40,9 +39,6 @@ public class LoadingDialog {
         dialog = builder.create();
         dialog.show();
     }
-
-
-
     void dismissDialog(){
         dialog.dismiss();
     }
