@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth mAuth;
     String blood;
-    TextView txtId;
+    TextView txtId,txtSignIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,14 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         radioCivilian = findViewById(R.id.radioCivilian);
         radioStaff =findViewById(R.id.radioStaff);
         txtId = findViewById(R.id.txtId);
+        txtSignIn = findViewById(R.id.txtSignIn);
+
+        txtSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchWelcomeActivity();
+            }
+        });
 
         spBlood = findViewById(R.id.spBlood);
         spBlood.setOnItemSelectedListener(this);
@@ -135,7 +143,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        loadingDialog.dismissDialog();
+
                         mAuth.createUserWithEmailAndPassword(email, password)
                                 .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                                     @Override
@@ -152,6 +160,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             Toast.makeText(RegisterActivity.this, "Registration complete", Toast.LENGTH_SHORT).show();
                                                             launchMainActivity();
+                                                            loadingDialog.dismissDialog();
                                                         }
                                                     });
                                         }
@@ -165,6 +174,11 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
     public void launchMainActivity() {
         Intent intent = new Intent (RegisterActivity.this,MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void launchWelcomeActivity() {
+        Intent intent = new Intent (RegisterActivity.this,WelcomeActivity.class);
         startActivity(intent);
     }
 

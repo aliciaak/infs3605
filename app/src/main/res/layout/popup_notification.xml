@@ -26,7 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="We will let you know where he/she is,if he/she visits a Red Cross location"
+        android:text="We will let you know where he/she is, if he/she visits a Red Cross location"
         android:textColor="#979797"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/textView15"

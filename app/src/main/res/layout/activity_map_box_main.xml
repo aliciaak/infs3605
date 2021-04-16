@@ -35,26 +35,28 @@
         android:id="@+id/imageView5"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:paddingRight="5dp"
-        android:paddingLeft="5dp"
         android:layout_gravity="end"
+        android:contentDescription="@null"
+        android:paddingLeft="5dp"
+        android:paddingTop="50dp"
+        android:paddingRight="5dp"
         android:src="@drawable/redcross"
-        android:contentDescription="@null" />
+        android:visibility="invisible" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="45dp"
+        android:background="#EFEDED"
         android:gravity="center"
-        android:background="@drawable/round_corner"
         android:visibility="visible"
         mapbox:layout_constraintStart_toStartOf="parent"
-        mapbox:layout_constraintTop_toTopOf="parent" >
+        mapbox:layout_constraintTop_toTopOf="parent">
 
         <com.jaredrummler.materialspinner.MaterialSpinner
             android:id="@+id/category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:ms_dropdown_max_height="150dp" >
+            app:ms_dropdown_max_height="150dp">
 
         </com.jaredrummler.materialspinner.MaterialSpinner>
     </RelativeLayout>

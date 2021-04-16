@@ -38,7 +38,6 @@ public class WelcomeActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         txtSignEmail = findViewById(R.id.txtSignEmail);
 
-        final LoadingDialog loadingDialog = new LoadingDialog(WelcomeActivity.this);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -52,40 +51,46 @@ public class WelcomeActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingDialog.startLoadingDialog();
-                Handler handler = new Handler();
 
                 if (txtEmailLogin.getText().toString().isEmpty()) {
                     Toast.makeText(WelcomeActivity.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
                 } else if (txtPasswordLogin.getText().toString().isEmpty()) {
                     Toast.makeText(WelcomeActivity.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
                 } else {
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            loadingDialog.dismissDialog();
-                            userLogin();
-                        }
-                    }, 10000);
+                    userLogin();
                 }
             }
         });
     }
 
     private void userLogin(){
-        String email = txtEmailLogin.getText().toString();
-        String password = txtPasswordLogin.getText().toString();
+        final String email = txtEmailLogin.getText().toString();
+        final String password = txtPasswordLogin.getText().toString();
 
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        final LoadingDialog loadingDialog = new LoadingDialog(WelcomeActivity.this);
+
+        loadingDialog.startLoadingDialog();
+        Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    launchMapFragment();
-                } else {
-                    Toast.makeText(WelcomeActivity.this, "Login Fail, Please Check Your Credential", Toast.LENGTH_SHORT).show();
-                }
+            public void run() {
+                mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            launchMapFragment();
+                            loadingDialog.dismissDialog();
+                        } else {
+                            Toast.makeText(WelcomeActivity.this, "Login Fail, Please Check Your Credential", Toast.LENGTH_SHORT).show();
+                            loadingDialog.dismissDialog();
+                        }
+                    }
+                });
             }
-        });
+        }, 10000);
+
+
     }
 
     private void launchEmailLoginActivity() {
