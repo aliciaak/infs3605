@@ -167,7 +167,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                                     }
                                 });
                     }
-                }, 10000);
+                }, 1000);
             }
         });
     }

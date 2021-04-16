@@ -51,6 +51,7 @@
     <string name="alert">ALERT</string>
     <string name="safe_zone">You will soon be entering a conflict-free zone. This is a safe area!</string>
 
+    <string name="browse_rc">Browse Red Cross Stations</string>
     <string name="scholes">Schole\'s View Shelter</string>
     <string name="bondi">Bondi Junction Shelter</string>
     <string name="broadway">Broadway Shelter</string>

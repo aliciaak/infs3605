@@ -135,7 +135,8 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
 
         btnEC = view.findViewById(R.id.btnEC);
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add( getString(R.string.bondi));
+        arrayList.add(getString(R.string.browse_rc));
+        arrayList.add(getString(R.string.bondi));
         arrayList.add(getString(R.string.broadway));
         arrayList.add(getString(R.string.darlinghurst));
         arrayList.add(getString(R.string.lane_cove));
@@ -146,12 +147,13 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         arrayList.add(getString(R.string.syd_CBD));
         arrayList.add(getString(R.string.unsw));
 
-        arrayAdapter =new ArrayAdapter<String>(getContext(),R.layout.support_simple_spinner_dropdown_item,arrayList);
+        arrayAdapter = new ArrayAdapter<String>(getContext(),R.layout.support_simple_spinner_dropdown_item,arrayList);
         category.setAdapter(arrayAdapter);
 
         category.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                if(position != 0)
                 showDropDown(item.toString());
             }
         });
