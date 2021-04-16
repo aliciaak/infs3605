@@ -42,6 +42,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     FirebaseAuth mAuth;
     String blood;
     TextView txtId,txtSignIn;
+    int count = 1;
+    int start = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,17 +82,15 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
         mAuth = FirebaseAuth.getInstance();
 
-        DatabaseReference userReference = FirebaseDatabase.getInstance().getReference().child("User");
+        final DatabaseReference userReference = FirebaseDatabase.getInstance().getReference().child("User");
 
         userReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     User user = snapshot.getValue(User.class);
-                    Long id = user.getId();
-                    int userId = id.intValue();
-                    userId = userId++;
-                    txtId.setText(Integer.toString(userId));
+                    count++;
+                    txtId.setText(Integer.toString(count));
                 }
             }
 
@@ -112,7 +112,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 final String password = txtPassword.getText().toString();
                 final String language = txtLanguage.getText().toString();
                 final String blood_type = blood;
-                final Long userId = Long.valueOf(Integer.parseInt(txtId.getText().toString())+1);
+                final Long userId = Long.valueOf(Integer.parseInt(txtId.getText().toString())+start);
 
                 loadingDialog.startLoadingDialog1();
                 Handler handler = new Handler();
@@ -175,11 +175,13 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     public void launchMainActivity() {
         Intent intent = new Intent (RegisterActivity.this,MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void launchWelcomeActivity() {
         Intent intent = new Intent (RegisterActivity.this,WelcomeActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

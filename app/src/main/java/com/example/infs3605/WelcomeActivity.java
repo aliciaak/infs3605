@@ -95,13 +95,14 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchEmailLoginActivity() {
         Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
-
         startActivity(intent);
+        finish();
     }
 
     private void launchMapFragment() {
         Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-
         startActivity(intent);
+        finish();
+
     }
 }

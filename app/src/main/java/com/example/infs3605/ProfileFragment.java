@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ProfileFragment extends Fragment {
 
     TextView tvName, tvBlood, tvEmail, tvId;
-    Button btnFind;
+    Button btnSignOut;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +41,14 @@ public class ProfileFragment extends Fragment {
         tvBlood = v.findViewById(R.id.tvBlood);
         tvEmail = v.findViewById(R.id.tvEmail);
         tvId = v.findViewById(R.id.tvId);
+        btnSignOut = v.findViewById(R.id.btnSignOut);
+
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchWelcomeActivity();
+            }
+        });
 
         userReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -61,8 +69,11 @@ public class ProfileFragment extends Fragment {
         return v;
     }
 
-    public void launchFamilyActivity() {
-        Intent intent = new Intent(getActivity(), FamilyActivity.class);
+    public void launchWelcomeActivity() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getActivity(), WelcomeActivity.class);
         startActivity(intent);
+        getActivity().finish();
+
     }
 }
