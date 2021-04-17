@@ -34,12 +34,6 @@ public class User {
         this.language = language;
     }
 
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public String getBlood() {
         return blood;
@@ -57,7 +51,7 @@ public class User {
         this.id = id;
     }
 
-    public User(String name, String email, String password, String language, String type, String blood, Long id) {
+    public User(String name, String email, String password, String language, String blood, Long id) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -69,9 +63,9 @@ public class User {
 
     public static ArrayList<User> getStaticUsers(){
         ArrayList<User> users = new ArrayList<>();
-        users.add(new User("Mina Faiz","Hurstville Red Cross","With family","Chinese","No Help Requested","A+ (A Postive)",Long.valueOf(101)));
-        users.add(new User("Zaed Faiz","Chatswoord Red Cross","With family","English","No Help requested","A+ (A Postive)",Long.valueOf(102)));
-        users.add(new User("Rafid Mahmood","Unknown","Unknown","English","Help requested","C+ (A Postive)",Long.valueOf(103)));
+        users.add(new User("Mina Faiz","Hurstville Red Cross","With family","No Help Requested","A+ (A Postive)",Long.valueOf(101)));
+        users.add(new User("Zaed Faiz","Chatswoord Red Cross","With family","No Help requested","A+ (A Postive)",Long.valueOf(102)));
+        users.add(new User("Rafid Mahmood","Unknown","Unknown","Help requested","C+ (A Postive)",Long.valueOf(103)));
         return users;
     }
 

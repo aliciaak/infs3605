@@ -45,7 +45,7 @@ public class DetailActivity extends AppCompatActivity implements AdapterView.OnI
 
         tvMemberName.setText(user.getName());
         tvLastLocation.setText(user.getEmail());
-        tvHelpStatus.setText(user.getType());
+        tvHelpStatus.setText(user.getLanguage());
         tvLocationStatus.setText(user.getPassword());
 
         spLF = findViewById(R.id.spLF);

@@ -33,7 +33,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
         User user = familyMember.get(position);
-        holder.status.setText(user.getType());
+        holder.status.setText(user.getLanguage());
         holder.name.setText(user.getName());
         holder.location.setText(user.getEmail());
         holder.locationStatus.setText(user.getPassword());

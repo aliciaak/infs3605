@@ -34,7 +34,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
     String type = "";
     Button btnRegister;
-    RadioButton radioCivilian,radioStaff;
     EditText txtName,txtEmail,txtPassword,txtLanguage;
     Spinner spBlood;
     DatabaseReference databaseReference;
@@ -57,8 +56,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         txtPassword = findViewById(R.id.txtPassword);
         txtLanguage = findViewById(R.id.txtLanguage);
         btnRegister = findViewById(R.id.btnRegister);
-        radioCivilian = findViewById(R.id.radioCivilian);
-        radioStaff =findViewById(R.id.radioStaff);
         txtId = findViewById(R.id.txtId);
         txtSignIn = findViewById(R.id.txtSignIn);
 
@@ -117,12 +114,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 loadingDialog.startLoadingDialog1();
                 Handler handler = new Handler();
 
-                if(radioCivilian.isChecked()){
-                    type = "Civilian";
-                }
-                if(radioStaff.isChecked()){
-                    type = "Red Cross Staff";
-                }
 
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(RegisterActivity.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
@@ -150,7 +141,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
 
-                                            User information = new User(name,email,password,language,type,blood_type,userId);
+                                            User information = new User(name,email,password,language,blood_type,userId);
 
                                             FirebaseDatabase.getInstance().getReference("User")
                                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
