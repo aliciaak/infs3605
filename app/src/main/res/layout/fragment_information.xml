@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,135 +12,143 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30sp"
-        android:gravity="center"
         android:fontFamily="@font/merriweather_bold"
+        android:gravity="center"
         android:text="@string/red_cross_info"
         android:textColor="#0C0C0C"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/pageTitle2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/pageTitle"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
         android:gravity="center"
         android:text="@string/red_cross_blurb"
         android:textColor="#0C0C0C"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pageTitle" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorAccent"
+        android:layout_height="350dp"
         android:layout_below="@+id/pageTitle2"
-        android:layout_marginTop="50dp"
+        android:background="@color/colorAccent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <RelativeLayout
             android:id="@+id/RedCrossButton"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@drawable/buttonstyle"
+            android:layout_height="80dp"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp">
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/buttonstyle">
 
             <TextView
                 android:id="@+id/text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="30dp"
+                android:gravity="center"
                 android:text="@string/the_red_cross_title"
                 android:textColor="#000000"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
-                android:layout_centerInParent="true" />
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/image1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/info1"
-                android:gravity="center"
-                android:layout_centerInParent="true"
                 android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
                 android:layout_marginEnd="60dp"
-                android:contentDescription="@null"/>
+                android:contentDescription="@null"
+                android:gravity="center"
+                android:src="@drawable/info1" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/TheRedCrossEmblems"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@drawable/buttonstyle"
-            android:textAllCaps="false"
-            android:layout_marginTop="20dp"
+            android:layout_height="80dp"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp">
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/buttonstyle"
+            android:textAllCaps="false">
 
             <TextView
                 android:id="@+id/text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/the_red_cross_emblems"
-                android:textColor="#0C0C0C"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:textAlignment="textStart"
                 android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
                 android:layout_marginStart="30dp"
-                android:layout_centerInParent="true" />
+                android:gravity="center"
+                android:text="@string/the_red_cross_emblems"
+                android:textAlignment="textStart"
+                android:textColor="#0C0C0C"
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/image2"
                 android:layout_width="150dp"
                 android:layout_height="130dp"
-                android:src="@drawable/info2"
-                android:gravity="center"
-                android:layout_centerInParent="true"
                 android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
                 android:layout_marginStart="20sp"
                 android:layout_marginEnd="30dp"
-                android:contentDescription="@null"/>
+                android:contentDescription="@null"
+                android:gravity="center"
+                android:src="@drawable/info2" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/CorrectEmblemsUsage"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@drawable/buttonstyle"
-            android:layout_marginTop="20dp"
+            android:layout_height="80dp"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp">
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/buttonstyle">
 
             <TextView
                 android:id="@+id/text3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/correct_emblem_usage"
-                android:textColor="#0C0C0C"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:textAlignment="textStart"
                 android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
                 android:layout_marginStart="30dp"
-                android:layout_centerInParent="true" />
+                android:gravity="center"
+                android:text="@string/correct_emblem_usage"
+                android:textAlignment="textStart"
+                android:textColor="#0C0C0C"
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/image3"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/info3"
-                android:gravity="center"
-                android:layout_centerInParent="true"
                 android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
                 android:layout_marginEnd="60dp"
-                android:contentDescription="@null"/>
+                android:contentDescription="@null"
+                android:gravity="center"
+                android:src="@drawable/info3" />
 
         </RelativeLayout>
     </LinearLayout>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
