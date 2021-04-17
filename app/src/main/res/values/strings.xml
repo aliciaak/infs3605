@@ -8,7 +8,7 @@
     <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
 
     <!-- HOME / SIGN IN / REGISTRATION -->
-    <string name="rc_aid">Red Cross Aid</string>
+    <string name="rc_aid">RedCross PinPoint</string>
     <string name="aid_blurb1">in conflict zones,</string>
     <string name="aid_blurb2">Aid for those in need</string>
     <string name="start">Get Started</string>
