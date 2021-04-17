@@ -154,7 +154,7 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
                 if(position != 0)
-                showDropDown(item.toString());
+                    showDropDown(item.toString());
             }
         });
 
@@ -448,7 +448,7 @@ public class MapBoxMainFragment extends Fragment implements OnMapReadyCallback, 
         if (granted) {
             mapboxMap.getStyle(new Style.OnStyleLoaded(){
                 @Override
-                        public void onStyleLoaded(@NonNull Style style){
+                public void onStyleLoaded(@NonNull Style style){
                     enableLocationComponent(mapboxMap.getStyle());
                 }
             });
