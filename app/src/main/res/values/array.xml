@@ -2,7 +2,7 @@
 <resources>
 
     <string-array name="blood_type">
-        <item>"Select Your Blood Type "</item>
+        <item>"(Optional)"</item>
         <item>"A+ (A Positive)"</item>
         <item>"A- (A Negative)"</item>
         <item>"B+ (B Positive)"</item>

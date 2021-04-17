@@ -12,7 +12,7 @@
     <string name="aid_blurb1">Humanitarian aid for those in need</string>
     <string name="aid_blurb2">rc</string>
     <string name="start">Get Started</string>
-    <string name="enter_details">Enter your details below or sign up with Google</string>
+    <string name="enter_details">Enter your details below</string>
     <string name="name">Name</string>
     <string name="user_ID">User ID</string>
     <string name="email">Email</string>
