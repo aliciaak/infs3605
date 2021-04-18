@@ -49,7 +49,7 @@
     <!-- MAP / NAVIGATION / DETAILS ABOUT RC STATIONS -->
     <string name="start_nav">Start Navigation</string>
     <string name="alert">ALERT</string>
-    <string name="safe_zone">You will soon be entering a conflict-free zone. This is a safe area!</string>
+    <string name="safe_zone">You will soon be entering a conflict-free zone. \nThis is a safe area!</string>
 
     <string name="browse_rc">Browse Red Cross Stations</string>
     <string name="scholes">Schole\'s View Shelter</string>

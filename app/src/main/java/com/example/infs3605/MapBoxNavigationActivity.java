@@ -199,14 +199,13 @@ public class MapBoxNavigationActivity extends AppCompatActivity implements Progr
                 REQUEST_CODE_MORE,
                 new Intent( MapBoxNavigationActivity.this, MapBoxMainFragment.class)
                         .putExtra(KEY_INTENT_MORE, REQUEST_CODE_MORE),
-                PendingIntent.FLAG_UPDATE_CURRENT
-        );
+                PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNNEL_ID)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), android.R.mipmap.sym_def_app_icon))
                 .setSmallIcon(android.R.drawable.ic_dialog_dialer)
                 .setColor(ContextCompat.getColor(this, R.color.teal_200))
-                .setContentTitle("You are near to destination!")
+                .setContentTitle("You are near your destination!")
                 .setAutoCancel(false)
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
 
